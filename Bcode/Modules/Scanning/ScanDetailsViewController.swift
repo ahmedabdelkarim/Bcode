@@ -40,7 +40,7 @@ class ScanDetailsViewController: UIViewController {
     }
     
     @IBAction func copyTextButtonClicked(_ sender: Any) {
-        UIPasteboard.general.string = barcodeText
+        UIPasteboard.general.string = "\(barcodeText!)\nDetected by Bcode - app url"
         //TODO: show animated checkmark to confirm copied
         
     }

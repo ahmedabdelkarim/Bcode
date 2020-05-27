@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        UISwitch.appearance().onTintColor = .black
+        
         return true
     }
 

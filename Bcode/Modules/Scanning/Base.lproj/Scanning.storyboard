@@ -176,8 +176,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detected Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBb-Ew-51g">
-                                        <rect key="frame" x="139" y="7" width="136" height="26.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <rect key="frame" x="144" y="7.5" width="126.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>

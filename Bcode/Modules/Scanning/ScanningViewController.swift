@@ -9,10 +9,7 @@
 import UIKit
 import AVFoundation
 
-//TODO: handle urls by displaying button to open the url
 //TODO: add UI to select barcode type (qr/ean13/all)
-//TODO: add UI to change vibration enabled/disabled
-//TODO: Quick action to share, and any other useful action
 
 class ScanningViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHandlerDelegate {
     //MARK: - Outlets
@@ -65,11 +62,6 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     func displayDetectedCode(code: String) {
         detectedCode = code
         performSegue(withIdentifier: "showScanDetails", sender: nil)
-        
-        //        let detailsViewController = ScanDetailsViewController()
-        //        detailsViewController.barcodeText = code
-        //        //detailsViewController.isModalInPresentation = true
-        //        present(detailsViewController, animated: true, completion: nil)
     }
     
     func scanBarcodeWithType(_ type:AVMetadataObject.ObjectType) {
@@ -87,6 +79,12 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     
     //MARK: - Actions
     @IBAction func scanButtonClick(_ sender: Any) {
+        
+        displayDetectedCode(code: "01221290994")
+        
+        return
+        
+        
         if(barcodeScanner.isScanning) {
             barcodeScanner.stopScanning()
         }

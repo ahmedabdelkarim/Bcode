@@ -7,34 +7,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--History View Controller-->
         <scene sceneID="n4O-Kg-Ye3">
             <objects>
-                <viewController id="gaW-qr-pGd" sceneMemberID="viewController">
+                <viewController id="gaW-qr-pGd" customClass="HistoryViewController" customModule="Bcode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l5p-Uu-26O">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdK-0B-no9">
-                                <rect key="frame" x="162.5" y="412.5" width="89" height="32"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h0J-bi-JTW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="gaW-qr-pGd" id="k9B-eI-lHp"/>
+                                    <outlet property="delegate" destination="gaW-qr-pGd" id="g44-3O-aua"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="vdK-0B-no9" firstAttribute="centerX" secondItem="5oZ-0g-HL3" secondAttribute="centerX" id="FBG-67-3KH"/>
-                            <constraint firstItem="vdK-0B-no9" firstAttribute="centerY" secondItem="5oZ-0g-HL3" secondAttribute="centerY" id="xAg-g9-39n"/>
+                            <constraint firstItem="h0J-bi-JTW" firstAttribute="top" secondItem="5oZ-0g-HL3" secondAttribute="top" id="1Va-Xi-drc"/>
+                            <constraint firstItem="5oZ-0g-HL3" firstAttribute="bottom" secondItem="h0J-bi-JTW" secondAttribute="bottom" id="AX1-3u-kDs"/>
+                            <constraint firstItem="5oZ-0g-HL3" firstAttribute="trailing" secondItem="h0J-bi-JTW" secondAttribute="trailing" id="Gc0-bJ-PIK"/>
+                            <constraint firstItem="h0J-bi-JTW" firstAttribute="leading" secondItem="5oZ-0g-HL3" secondAttribute="leading" id="hol-H4-4Va"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5oZ-0g-HL3"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="history" id="JLB-kh-Q6N"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="h0J-bi-JTW" id="0FQ-0j-ZOc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7n1-Rr-ra7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="155" y="109"/>
+            <point key="canvasLocation" x="153.62318840579712" y="108.48214285714285"/>
         </scene>
     </scenes>
 </document>

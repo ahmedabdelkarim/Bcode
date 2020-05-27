@@ -48,12 +48,12 @@ class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initControl()
+        //initControl()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        initControl()
+        //initControl()
     }
     
     override public func layoutSubviews() {
@@ -136,9 +136,9 @@ class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
     }
     
     private func setupPreviewLayer() {
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = self.layer.bounds
-        previewLayer.videoGravity = .resizeAspectFill
+//        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+//        previewLayer.frame = self.layer.bounds
+//        previewLayer.videoGravity = .resizeAspectFill
     }
     
     private func updateScanningCamera() {
