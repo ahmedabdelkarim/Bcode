@@ -19,22 +19,68 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7G-hS-6h7">
-                                <rect key="frame" x="0.0" y="723" width="414" height="90"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ist-cV-Egv" userLabel="SettingsView" customClass="DesignableView" customModule="Bcode" customModuleProvider="target">
+                                <rect key="frame" x="24" y="68" width="366" height="40"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQl-fm-nUS">
-                                        <rect key="frame" x="170" y="8" width="74" height="74"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mII-LE-kjX">
+                                        <rect key="frame" x="24" y="5" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="64i-Na-SpA"/>
+                                            <constraint firstAttribute="height" constant="30" id="IGn-54-dl5"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="bolt.slash.fill" catalog="system"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning QR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-3L-ywv">
+                                        <rect key="frame" x="136" y="10.5" width="94" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQg-7H-pLv">
+                                        <rect key="frame" x="316" y="7" width="26" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="26" id="OwP-qx-lQj"/>
+                                            <constraint firstAttribute="height" constant="26" id="sOC-3c-nJt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <state key="normal" title="ALL" image="qr-white"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.80393835616438358" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ird-6m-zis"/>
+                                    <constraint firstItem="OBd-3L-ywv" firstAttribute="centerX" secondItem="ist-cV-Egv" secondAttribute="centerX" id="cmg-Nx-wUm"/>
+                                    <constraint firstAttribute="trailing" secondItem="LQg-7H-pLv" secondAttribute="trailing" constant="24" id="cnP-gJ-aeE"/>
+                                    <constraint firstItem="OBd-3L-ywv" firstAttribute="centerY" secondItem="ist-cV-Egv" secondAttribute="centerY" id="nwD-UU-HdD"/>
+                                    <constraint firstItem="mII-LE-kjX" firstAttribute="centerY" secondItem="ist-cV-Egv" secondAttribute="centerY" id="qm7-kV-gnd"/>
+                                    <constraint firstItem="LQg-7H-pLv" firstAttribute="centerY" secondItem="ist-cV-Egv" secondAttribute="centerY" id="sZZ-fs-afr"/>
+                                    <constraint firstItem="mII-LE-kjX" firstAttribute="leading" secondItem="ist-cV-Egv" secondAttribute="leading" constant="24" id="x5h-MQ-ClU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7G-hS-6h7" userLabel="ControlsView">
+                                <rect key="frame" x="0.0" y="713" width="414" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQl-fm-nUS" customClass="DesignableView" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="170" y="13" width="74" height="74"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6D-X2-UrT">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6D-X2-UrT" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="5" width="64" height="64"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="64" id="QPm-uZ-zGp"/>
                                                     <constraint firstAttribute="width" constant="64" id="dM4-qj-pvc"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Scan"/>
+                                                <state key="normal" title="Scan">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="32"/>
@@ -59,17 +105,20 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                                 <integer key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ti-er-cAL" userLabel="Switch Camera Button">
-                                        <rect key="frame" x="340" y="20" width="50" height="50"/>
+                                        <rect key="frame" x="340" y="25" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="1hX-wy-wM9"/>
                                             <constraint firstAttribute="height" constant="50" id="RUs-UK-Ku0"/>
                                         </constraints>
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <state key="normal" image="camera.rotate" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="large" weight="medium"/>
                                         </state>
                                         <connections>
                                             <action selector="changeCameraButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CXp-wJ-4Yw"/>
@@ -82,7 +131,7 @@
                                     <constraint firstItem="1ti-er-cAL" firstAttribute="centerY" secondItem="Q7G-hS-6h7" secondAttribute="centerY" id="LC4-IH-Xrs"/>
                                     <constraint firstItem="QQl-fm-nUS" firstAttribute="centerX" secondItem="Q7G-hS-6h7" secondAttribute="centerX" id="QuW-mk-lpa"/>
                                     <constraint firstItem="QQl-fm-nUS" firstAttribute="centerY" secondItem="Q7G-hS-6h7" secondAttribute="centerY" id="cry-je-0iq"/>
-                                    <constraint firstAttribute="height" constant="90" id="d6Z-xJ-E0q"/>
+                                    <constraint firstAttribute="height" constant="100" id="d6Z-xJ-E0q"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -91,8 +140,11 @@
                             <constraint firstItem="Q7G-hS-6h7" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="793-vQ-fa7"/>
                             <constraint firstItem="c4f-ht-NCO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pob-bV-8Ym"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q7G-hS-6h7" secondAttribute="trailing" id="TGy-m5-qvL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ist-cV-Egv" secondAttribute="trailing" constant="24" id="TYb-42-iMx"/>
                             <constraint firstAttribute="trailing" secondItem="c4f-ht-NCO" secondAttribute="trailing" id="Twt-Vb-Q2g"/>
                             <constraint firstItem="c4f-ht-NCO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YXj-mf-6Zq"/>
+                            <constraint firstItem="ist-cV-Egv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="biG-5C-YMG"/>
+                            <constraint firstItem="ist-cV-Egv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="vgC-M3-dws"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="c4f-ht-NCO" secondAttribute="bottom" id="xt8-3m-fvy"/>
                             <constraint firstItem="Q7G-hS-6h7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z7i-L8-z8A"/>
                         </constraints>
@@ -285,6 +337,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bolt.slash.fill" catalog="system" width="50" height="64"/>
         <image name="camera" catalog="system" width="64" height="48"/>
         <image name="camera.rotate" catalog="system" width="64" height="48"/>
         <image name="chevron.down" catalog="system" width="64" height="36"/>
@@ -292,6 +345,7 @@
         <image name="map.fill" catalog="system" width="64" height="56"/>
         <image name="phone.fill" catalog="system" width="64" height="56"/>
         <image name="photo.fill" catalog="system" width="64" height="46"/>
+        <image name="qr-white" width="50" height="50"/>
         <image name="safari.fill" catalog="system" width="64" height="60"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="56" height="64"/>
     </resources>

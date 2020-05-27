@@ -43,13 +43,13 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     func updateScanButtonState() {
         if(barcodeScanner.isScanning) {
             scanButton.setTitle("Stop", for: .normal)
-            scanButtonView.layer.borderColor = UIColor.systemRed.cgColor
-            scanButton.backgroundColor = .systemRed
+            //scanButtonView.borderColor = .systemRed
+            //scanButton.backgroundColor = .systemRed
         }
         else {
             scanButton.setTitle("Scan", for: .normal)
-            scanButtonView.layer.borderColor = UIColor.systemBlue.cgColor
-            scanButton.backgroundColor = .systemBlue
+            //scanButtonView.borderColor = .systemBlue
+            //scanButton.backgroundColor = .systemBlue
         }
     }
     

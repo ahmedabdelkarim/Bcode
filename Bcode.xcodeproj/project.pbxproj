@@ -21,6 +21,7 @@
 		F541E4E4247D78C60005806F /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F541E4E3247D78C60005806F /* RoundedButton.swift */; };
 		F541E4E7247D79E80005806F /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F541E4E6247D79E80005806F /* UIViewExtensions.swift */; };
 		F541E4E9247DA3730005806F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F541E4E8247DA3730005806F /* GoogleService-Info.plist */; };
+		F54270A6247E9E15004D0142 /* DesignableControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54270A5247E9E15004D0142 /* DesignableControls.swift */; };
 		F555A45D244F944100D79C5D /* ScannerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A45C244F944100D79C5D /* ScannerCamera.swift */; };
 		F555A45F244F964300D79C5D /* BarcodeScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A45E244F964300D79C5D /* BarcodeScannerDelegate.swift */; };
 		F555A46D244FB21900D79C5D /* ShortcutItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */; };
@@ -48,6 +49,7 @@
 		F541E4E3247D78C60005806F /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		F541E4E6247D79E80005806F /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		F541E4E8247DA3730005806F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F54270A5247E9E15004D0142 /* DesignableControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableControls.swift; sourceTree = "<group>"; };
 		F555A45C244F944100D79C5D /* ScannerCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCamera.swift; sourceTree = "<group>"; };
 		F555A45E244F964300D79C5D /* BarcodeScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerDelegate.swift; sourceTree = "<group>"; };
 		F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutItemHandler.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				F541E4E6247D79E80005806F /* UIViewExtensions.swift */,
+				F54270A5247E9E15004D0142 /* DesignableControls.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				F50A12EA246736E100BFF21B /* ScanDetailsViewController.swift in Sources */,
 				F541E4E7247D79E80005806F /* UIViewExtensions.swift in Sources */,
 				F555A46D244FB21900D79C5D /* ShortcutItemHandler.swift in Sources */,
+				F54270A6247E9E15004D0142 /* DesignableControls.swift in Sources */,
 				F555A45F244F964300D79C5D /* BarcodeScannerDelegate.swift in Sources */,
 				F537967023E2001900CD57C6 /* SceneDelegate.swift in Sources */,
 			);
