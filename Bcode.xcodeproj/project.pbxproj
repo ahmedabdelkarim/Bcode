@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CD6306739BCE06EE0EBBADE /* Pods_Bcode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65AC42CB3D5676259433B17C /* Pods_Bcode.framework */; };
 		F50A12EA246736E100BFF21B /* ScanDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50A12E8246736E100BFF21B /* ScanDetailsViewController.swift */; };
 		F50A12EB246736E100BFF21B /* ScanDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F50A12E9246736E100BFF21B /* ScanDetailsViewController.xib */; };
 		F51E895F24672F5300960533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51E895E24672F5300960533 /* Main.storyboard */; };
@@ -17,6 +18,9 @@
 		F537967723E2001A00CD57C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F537967623E2001A00CD57C6 /* Assets.xcassets */; };
 		F537967A23E2001A00CD57C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F537967823E2001A00CD57C6 /* LaunchScreen.storyboard */; };
 		F537968323E203E400CD57C6 /* BarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F537968223E203E400CD57C6 /* BarcodeScanner.swift */; };
+		F541E4E4247D78C60005806F /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F541E4E3247D78C60005806F /* RoundedButton.swift */; };
+		F541E4E7247D79E80005806F /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F541E4E6247D79E80005806F /* UIViewExtensions.swift */; };
+		F541E4E9247DA3730005806F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F541E4E8247DA3730005806F /* GoogleService-Info.plist */; };
 		F555A45D244F944100D79C5D /* ScannerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A45C244F944100D79C5D /* ScannerCamera.swift */; };
 		F555A45F244F964300D79C5D /* BarcodeScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A45E244F964300D79C5D /* BarcodeScannerDelegate.swift */; };
 		F555A46D244FB21900D79C5D /* ShortcutItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */; };
@@ -26,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46E766EB73C3441587DF5012 /* Pods-Bcode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bcode.debug.xcconfig"; path = "Target Support Files/Pods-Bcode/Pods-Bcode.debug.xcconfig"; sourceTree = "<group>"; };
+		65AC42CB3D5676259433B17C /* Pods_Bcode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bcode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C1B7217466F4233CC17F8B5 /* Pods-Bcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bcode.release.xcconfig"; path = "Target Support Files/Pods-Bcode/Pods-Bcode.release.xcconfig"; sourceTree = "<group>"; };
 		F50A12E8246736E100BFF21B /* ScanDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDetailsViewController.swift; sourceTree = "<group>"; };
 		F50A12E9246736E100BFF21B /* ScanDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanDetailsViewController.xib; sourceTree = "<group>"; };
 		F51E895E24672F5300960533 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +45,9 @@
 		F537967923E2001A00CD57C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F537967B23E2001A00CD57C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F537968223E203E400CD57C6 /* BarcodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScanner.swift; sourceTree = "<group>"; };
+		F541E4E3247D78C60005806F /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		F541E4E6247D79E80005806F /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		F541E4E8247DA3730005806F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F555A45C244F944100D79C5D /* ScannerCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCamera.swift; sourceTree = "<group>"; };
 		F555A45E244F964300D79C5D /* BarcodeScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerDelegate.swift; sourceTree = "<group>"; };
 		F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutItemHandler.swift; sourceTree = "<group>"; };
@@ -51,12 +61,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CD6306739BCE06EE0EBBADE /* Pods_Bcode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9318551347E59CC718824730 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46E766EB73C3441587DF5012 /* Pods-Bcode.debug.xcconfig */,
+				6C1B7217466F4233CC17F8B5 /* Pods-Bcode.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		97C1C4EE5551E926879EC973 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65AC42CB3D5676259433B17C /* Pods_Bcode.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F51E895D24672F3A00960533 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +98,8 @@
 			children = (
 				F537966C23E2001900CD57C6 /* Bcode */,
 				F537966B23E2001900CD57C6 /* Products */,
+				9318551347E59CC718824730 /* Pods */,
+				97C1C4EE5551E926879EC973 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,15 +115,41 @@
 			isa = PBXGroup;
 			children = (
 				F555A464244FAE8400D79C5D /* Modules */,
-				F555A45B244F942600D79C5D /* BarcodeScannerControl */,
+				F541E4E1247D77ED0005806F /* CustomControls */,
 				F555A46A244FB20500D79C5D /* Helpers */,
 				F537966D23E2001900CD57C6 /* AppDelegate.swift */,
 				F537966F23E2001900CD57C6 /* SceneDelegate.swift */,
 				F537967623E2001A00CD57C6 /* Assets.xcassets */,
 				F537967823E2001A00CD57C6 /* LaunchScreen.storyboard */,
 				F537967B23E2001A00CD57C6 /* Info.plist */,
+				F541E4E8247DA3730005806F /* GoogleService-Info.plist */,
 			);
 			path = Bcode;
+			sourceTree = "<group>";
+		};
+		F541E4E1247D77ED0005806F /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				F555A45B244F942600D79C5D /* BarcodeScannerControl */,
+				F541E4E2247D78AD0005806F /* RoundedButton */,
+			);
+			path = CustomControls;
+			sourceTree = "<group>";
+		};
+		F541E4E2247D78AD0005806F /* RoundedButton */ = {
+			isa = PBXGroup;
+			children = (
+				F541E4E3247D78C60005806F /* RoundedButton.swift */,
+			);
+			path = RoundedButton;
+			sourceTree = "<group>";
+		};
+		F541E4E5247D79BF0005806F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F541E4E6247D79E80005806F /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F555A45B244F942600D79C5D /* BarcodeScannerControl */ = {
@@ -132,6 +188,7 @@
 		F555A46A244FB20500D79C5D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F541E4E5247D79BF0005806F /* Extensions */,
 				F555A46B244FB20E00D79C5D /* Utilities */,
 			);
 			path = Helpers;
@@ -176,9 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F537967E23E2001A00CD57C6 /* Build configuration list for PBXNativeTarget "Bcode" */;
 			buildPhases = (
+				EA1543CE1010654F1783B549 /* [CP] Check Pods Manifest.lock */,
 				F537966623E2001900CD57C6 /* Sources */,
 				F537966723E2001900CD57C6 /* Frameworks */,
 				F537966823E2001900CD57C6 /* Resources */,
+				B4DEDA90831DF4BD599D3335 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,6 +288,7 @@
 			files = (
 				F51E895F24672F5300960533 /* Main.storyboard in Resources */,
 				F537967A23E2001A00CD57C6 /* LaunchScreen.storyboard in Resources */,
+				F541E4E9247DA3730005806F /* GoogleService-Info.plist in Resources */,
 				F537967723E2001A00CD57C6 /* Assets.xcassets in Resources */,
 				F5F62D9D2473312B008042DF /* Settings.storyboard in Resources */,
 				F537967523E2001900CD57C6 /* Scanning.storyboard in Resources */,
@@ -240,6 +300,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B4DEDA90831DF4BD599D3335 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bcode/Pods-Bcode-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bcode/Pods-Bcode-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bcode/Pods-Bcode-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA1543CE1010654F1783B549 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bcode-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F537966623E2001900CD57C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -249,7 +351,9 @@
 				F537966E23E2001900CD57C6 /* AppDelegate.swift in Sources */,
 				F555A45D244F944100D79C5D /* ScannerCamera.swift in Sources */,
 				F537968323E203E400CD57C6 /* BarcodeScanner.swift in Sources */,
+				F541E4E4247D78C60005806F /* RoundedButton.swift in Sources */,
 				F50A12EA246736E100BFF21B /* ScanDetailsViewController.swift in Sources */,
+				F541E4E7247D79E80005806F /* UIViewExtensions.swift in Sources */,
 				F555A46D244FB21900D79C5D /* ShortcutItemHandler.swift in Sources */,
 				F555A45F244F964300D79C5D /* BarcodeScannerDelegate.swift in Sources */,
 				F537967023E2001900CD57C6 /* SceneDelegate.swift in Sources */,
@@ -394,6 +498,7 @@
 		};
 		F537967F23E2001A00CD57C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46E766EB73C3441587DF5012 /* Pods-Bcode.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -403,7 +508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ahmedabdelkarim.apps.Bcode;
 				PRODUCT_NAME = Bcode;
 				SWIFT_VERSION = 5.0;
@@ -413,6 +518,7 @@
 		};
 		F537968023E2001A00CD57C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C1B7217466F4233CC17F8B5 /* Pods-Bcode.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -422,7 +528,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ahmedabdelkarim.apps.Bcode;
 				PRODUCT_NAME = Bcode;
 				SWIFT_VERSION = 5.0;

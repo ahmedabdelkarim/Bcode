@@ -21,6 +21,8 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var changeCameraButton: UIButton!
     
+    //MARK: - Variables
+    private var detectedCode:String = ""
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -36,7 +38,6 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         
         print("isScanning: \(barcodeScanner.isScanning)")
     }
-    
     
     //MARK: - Functions
     func updateScanButtonState() {
@@ -62,22 +63,16 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     func displayDetectedCode(code: String) {
-//        let alert = UIAlertController(title: "Detected Code", message: code, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//        present(alert, animated: true, completion: nil)
+        detectedCode = code
+        performSegue(withIdentifier: "showScanDetails", sender: nil)
         
-        let detailsViewController = ScanDetailsViewController()
-        detailsViewController.barcodeText = code
-        //detailsViewController.isModalInPresentation = true
-        
-        present(detailsViewController, animated: true, completion: nil)
+        //        let detailsViewController = ScanDetailsViewController()
+        //        detailsViewController.barcodeText = code
+        //        //detailsViewController.isModalInPresentation = true
+        //        present(detailsViewController, animated: true, completion: nil)
     }
     
     func scanBarcodeWithType(_ type:AVMetadataObject.ObjectType) {
-//        if(self.presentedViewController as? UIAlertController != nil) {
-//            self.dismiss(animated: true, completion: nil)
-//        }
-        
         if(self.presentedViewController as? ScanDetailsViewController != nil) {
             self.dismiss(animated: true, completion: nil)
         }
@@ -89,7 +84,6 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         updateScanButtonState()
         updateChangeCameraButtonState()
     }
-    
     
     //MARK: - Actions
     @IBAction func scanButtonClick(_ sender: Any) {
@@ -117,6 +111,14 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         }
     }
     
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if(segue.identifier == "showScanDetails") {
+            let viewController = segue.destination as? ScanDetailsViewController
+            viewController?.barcodeText = detectedCode
+        }
+    }
     
     //MARK: - BarcodeScannerDelegate
     func barcodeScannerDetectedCode(scanner: BarcodeScanner, code: String) {
@@ -144,9 +146,6 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     //MARK: - ShortcutItemHandlerDelegate
-    
-    //TODO: may present scanner modally to maintain selected barcode types and make scanning more flexible
-    
     func scanQR() {
         scanBarcodeWithType(.qr)
     }

@@ -105,15 +105,194 @@
                         <outlet property="changeCameraButton" destination="1ti-er-cAL" id="Rl4-Vh-GMz"/>
                         <outlet property="scanButton" destination="o6D-X2-UrT" id="fqg-tn-Zoc"/>
                         <outlet property="scanButtonView" destination="QQl-fm-nUS" id="uYa-or-fXr"/>
+                        <segue destination="qaJ-Jq-MId" kind="show" identifier="showScanDetails" id="0MS-Uc-hox"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="517" y="141"/>
         </scene>
+        <!--Scan Details View Controller-->
+        <scene sceneID="0k1-Q2-wQa">
+            <objects>
+                <viewController id="qaJ-Jq-MId" customClass="ScanDetailsViewController" customModule="Bcode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XxQ-ka-jSk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BO5-R4-ZKb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detected Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBb-Ew-51g">
+                                        <rect key="frame" x="139" y="7" width="136" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huJ-n1-X3c">
+                                        <rect key="frame" x="372" y="5" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="FrD-Rb-5NZ"/>
+                                            <constraint firstAttribute="width" constant="30" id="nYt-00-5za"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="chevron.down" catalog="system"/>
+                                        <connections>
+                                            <action selector="dismissButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="8aO-rW-d6j"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Bv7-yK-esQ"/>
+                                    <constraint firstItem="huJ-n1-X3c" firstAttribute="centerY" secondItem="BO5-R4-ZKb" secondAttribute="centerY" id="Q3j-c6-9ya"/>
+                                    <constraint firstItem="sBb-Ew-51g" firstAttribute="centerY" secondItem="BO5-R4-ZKb" secondAttribute="centerY" id="RSA-Cx-GPw"/>
+                                    <constraint firstItem="sBb-Ew-51g" firstAttribute="centerX" secondItem="BO5-R4-ZKb" secondAttribute="centerX" id="apO-QD-3tJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="huJ-n1-X3c" secondAttribute="trailing" constant="12" id="mBY-5D-l0Z"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksg-VZ-NFT">
+                                <rect key="frame" x="24" y="40" width="366" height="384"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="qTH-iR-2tP">
+                                <rect key="frame" x="30" y="448" width="354" height="360"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymN-qa-h9q" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Fkj-0q-1pA"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
+                                        <state key="normal" title="Open Image" image="photo.fill" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openImageButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="aVT-gb-jp7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDu-jY-z1S" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="62" width="354" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="jyH-jk-3uQ"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
+                                        <state key="normal" title="Open in Maps" image="map.fill" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openInMapsButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="MUQ-4S-2GT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-pQ-8gx" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="124" width="354" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="PGp-s3-Ldw"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
+                                        <state key="normal" title="Call Phone Number" image="phone.fill" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="phoneCallButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="JR4-yb-xbc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-iY-Gnr" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="186" width="354" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="b7w-c5-vLW"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
+                                        <state key="normal" title="Open in Browser" image="safari.fill" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openUrlButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="Phq-62-Amp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-Yv-roH" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="248" width="354" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="uxZ-yv-LbB"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
+                                        <state key="normal" title="Share" image="square.and.arrow.up.fill" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="shareButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="THn-k2-sPw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HId-Mo-j3B" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="310" width="354" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Ny3-gK-Ndz"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
+                                        <state key="normal" title="Copy Text" image="doc.on.doc.fill" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="copyTextButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="Wy9-0Q-rXb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ksg-VZ-NFT" firstAttribute="top" secondItem="BO5-R4-ZKb" secondAttribute="bottom" id="8Gc-5N-oQM"/>
+                            <constraint firstItem="BO5-R4-ZKb" firstAttribute="top" secondItem="9Mh-f6-z2B" secondAttribute="top" id="96J-GF-FRK"/>
+                            <constraint firstItem="9Mh-f6-z2B" firstAttribute="trailing" secondItem="BO5-R4-ZKb" secondAttribute="trailing" id="Aci-Hd-Qxp"/>
+                            <constraint firstItem="9Mh-f6-z2B" firstAttribute="trailing" secondItem="qTH-iR-2tP" secondAttribute="trailing" constant="30" id="L71-1J-5C4"/>
+                            <constraint firstItem="BO5-R4-ZKb" firstAttribute="leading" secondItem="9Mh-f6-z2B" secondAttribute="leading" id="OmX-kH-1oc"/>
+                            <constraint firstItem="9Mh-f6-z2B" firstAttribute="bottom" secondItem="qTH-iR-2tP" secondAttribute="bottom" id="T9c-Vc-pRb"/>
+                            <constraint firstItem="qTH-iR-2tP" firstAttribute="leading" secondItem="9Mh-f6-z2B" secondAttribute="leading" constant="30" id="dve-bX-Vvh"/>
+                            <constraint firstItem="qTH-iR-2tP" firstAttribute="top" secondItem="ksg-VZ-NFT" secondAttribute="bottom" constant="24" id="fDL-KA-Qoa"/>
+                            <constraint firstItem="ksg-VZ-NFT" firstAttribute="leading" secondItem="9Mh-f6-z2B" secondAttribute="leading" constant="24" id="qgR-vb-Yki"/>
+                            <constraint firstItem="9Mh-f6-z2B" firstAttribute="trailing" secondItem="ksg-VZ-NFT" secondAttribute="trailing" constant="24" id="rgU-5W-pol"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9Mh-f6-z2B"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DkI-RN-upI"/>
+                    <connections>
+                        <outlet property="barcodeTextLabel" destination="ksg-VZ-NFT" id="0zC-gE-YIK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r2O-gt-QPr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1346.376811594203" y="140.625"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="64" height="48"/>
         <image name="camera.rotate" catalog="system" width="64" height="48"/>
+        <image name="chevron.down" catalog="system" width="64" height="36"/>
+        <image name="doc.on.doc.fill" catalog="system" width="58" height="64"/>
+        <image name="map.fill" catalog="system" width="64" height="56"/>
+        <image name="phone.fill" catalog="system" width="64" height="56"/>
+        <image name="photo.fill" catalog="system" width="64" height="46"/>
+        <image name="safari.fill" catalog="system" width="64" height="60"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="56" height="64"/>
     </resources>
 </document>
