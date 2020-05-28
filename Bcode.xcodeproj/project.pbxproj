@@ -33,6 +33,7 @@
 		F555A45D244F944100D79C5D /* ScannerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A45C244F944100D79C5D /* ScannerCamera.swift */; };
 		F555A45F244F964300D79C5D /* BarcodeScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A45E244F964300D79C5D /* BarcodeScannerDelegate.swift */; };
 		F555A46D244FB21900D79C5D /* ShortcutItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */; };
+		F5A6E6752480612700F282CF /* UISegmentedControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A6E6742480612700F282CF /* UISegmentedControlExtensions.swift */; };
 		F5F62D982473308F008042DF /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F62D972473308F008042DF /* History.storyboard */; };
 		F5F62D9A247330D8008042DF /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F62D99247330D8008042DF /* Favorites.storyboard */; };
 		F5F62D9D2473312B008042DF /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F62D9C2473312B008042DF /* Settings.storyboard */; };
@@ -69,6 +70,7 @@
 		F555A45C244F944100D79C5D /* ScannerCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCamera.swift; sourceTree = "<group>"; };
 		F555A45E244F964300D79C5D /* BarcodeScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerDelegate.swift; sourceTree = "<group>"; };
 		F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutItemHandler.swift; sourceTree = "<group>"; };
+		F5A6E6742480612700F282CF /* UISegmentedControlExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtensions.swift; sourceTree = "<group>"; };
 		F5F62D972473308F008042DF /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		F5F62D99247330D8008042DF /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		F5F62D9C2473312B008042DF /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -167,8 +169,9 @@
 		F541E4E5247D79BF0005806F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F541E4E6247D79E80005806F /* UIViewExtensions.swift */,
 				F54270A5247E9E15004D0142 /* DesignableControls.swift */,
+				F541E4E6247D79E80005806F /* UIViewExtensions.swift */,
+				F5A6E6742480612700F282CF /* UISegmentedControlExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				F544A5DF247F14A000B8562A /* FavoritesViewController.swift in Sources */,
 				F541E4E7247D79E80005806F /* UIViewExtensions.swift in Sources */,
 				F555A46D244FB21900D79C5D /* ShortcutItemHandler.swift in Sources */,
+				F5A6E6752480612700F282CF /* UISegmentedControlExtensions.swift in Sources */,
 				F54270A6247E9E15004D0142 /* DesignableControls.swift in Sources */,
 				F555A45F244F964300D79C5D /* BarcodeScannerDelegate.swift in Sources */,
 				F537967023E2001900CD57C6 /* SceneDelegate.swift in Sources */,

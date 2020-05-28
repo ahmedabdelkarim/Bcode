@@ -11,3 +11,10 @@ import UIKit
 class DesignableView: UIView {
     
 }
+
+class DesignableSegmentedControl: UISegmentedControl {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setCustomStyle()
+    }
+}

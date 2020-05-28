@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,8 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cr1-He-t39" customClass="DesignableSegmentedControl" customModule="Bcode" customModuleProvider="target">
+                                <rect key="frame" x="12" y="56" width="390" height="32"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Links"/>
+                                    <segment title="Text"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" name="ThemeColor1"/>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h0J-bi-JTW">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="99" width="414" height="714"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gaW-qr-pGd" id="k9B-eI-lHp"/>
@@ -26,10 +36,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="h0J-bi-JTW" firstAttribute="top" secondItem="5oZ-0g-HL3" secondAttribute="top" id="1Va-Xi-drc"/>
                             <constraint firstItem="5oZ-0g-HL3" firstAttribute="bottom" secondItem="h0J-bi-JTW" secondAttribute="bottom" id="AX1-3u-kDs"/>
                             <constraint firstItem="5oZ-0g-HL3" firstAttribute="trailing" secondItem="h0J-bi-JTW" secondAttribute="trailing" id="Gc0-bJ-PIK"/>
+                            <constraint firstItem="cr1-He-t39" firstAttribute="leading" secondItem="5oZ-0g-HL3" secondAttribute="leading" constant="12" id="Y8Q-qt-fIR"/>
                             <constraint firstItem="h0J-bi-JTW" firstAttribute="leading" secondItem="5oZ-0g-HL3" secondAttribute="leading" id="hol-H4-4Va"/>
+                            <constraint firstItem="h0J-bi-JTW" firstAttribute="top" secondItem="cr1-He-t39" secondAttribute="bottom" constant="12" id="m6P-ag-9Ex"/>
+                            <constraint firstItem="cr1-He-t39" firstAttribute="top" secondItem="5oZ-0g-HL3" secondAttribute="top" constant="12" id="wfb-nO-70o"/>
+                            <constraint firstItem="5oZ-0g-HL3" firstAttribute="trailing" secondItem="cr1-He-t39" secondAttribute="trailing" constant="12" id="yvv-qF-DwJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5oZ-0g-HL3"/>
                     </view>
@@ -55,4 +68,9 @@
             <point key="canvasLocation" x="876" y="108"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="ThemeColor1">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
