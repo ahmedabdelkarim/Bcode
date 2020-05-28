@@ -1,5 +1,5 @@
 //
-//  ScanDetailsViewController.swift
+//  BarcodeDetailsViewController.swift
 //  Bcode
 //
 //  Created by Ahmed Abdelkarim on 5/9/20.
@@ -8,30 +8,41 @@
 
 import UIKit
 
-class ScanDetailsViewController: UIViewController {
+class BarcodeDetailsViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var barcodeTextLabel: UILabel!
+    @IBOutlet weak var favoriteButton: RoundedButton!
     
     //MARK: - Variables
-    var barcodeText:String!
+    var barcodeInfo:BarcodeInfo!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         showBarcodeText()
+        setFavoriteButtonImage()
         displayProperActions()
     }
     
     //MARK: - Functions
     func showBarcodeText() {
-        barcodeTextLabel.text = barcodeText
+        barcodeTextLabel.text = barcodeInfo.text
         //TODO: show thumbnails if needed (image if base64 image, map, phone nnumber indicator, web page or link, etc.)
         
     }
     
+    func setFavoriteButtonImage() {
+        if(barcodeInfo.isFavorite) {
+            favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        }
+        else {
+            favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
+        }
+    }
+    
     func displayProperActions() {
-        //TODO: show/hide actions based on detected barcode text
+        //TODO: show/hide actions based on barcodeInfo.contentType
     }
 
     //MARK: - Actions
@@ -39,8 +50,17 @@ class ScanDetailsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func favoriteButtonClick(_ sender: Any) {
+        barcodeInfo.isFavorite = !barcodeInfo.isFavorite
+        
+        //TODO: save object in device data
+        
+        
+        setFavoriteButtonImage()
+    }
+    
     @IBAction func copyTextButtonClicked(_ sender: Any) {
-        UIPasteboard.general.string = "\(barcodeText!)\nDetected by Bcode - app url"
+        UIPasteboard.general.string = "\(barcodeInfo.text!)\nDetected by Bcode - app url"
         //TODO: show animated checkmark to confirm copied
         
     }
@@ -52,7 +72,7 @@ class ScanDetailsViewController: UIViewController {
     }
     
     @IBAction func openUrlButtonClicked(_ sender: Any) {
-        if let url = URL(string: barcodeText) {
+        if let url = URL(string: barcodeInfo.text) {
             UIApplication.shared.open(url)
         }
         else {
@@ -61,7 +81,7 @@ class ScanDetailsViewController: UIViewController {
     }
     
     @IBAction func phoneCallButtonClicked(_ sender: Any) {
-        if let url = URL(string: "tel://" + barcodeText) {
+        if let url = URL(string: "tel://" + barcodeInfo.text) {
             UIApplication.shared.open(url)
         }
         else {
@@ -92,13 +112,13 @@ class ScanDetailsViewController: UIViewController {
 
 
 //MARK: - UIActivityItemSource
-extension ScanDetailsViewController: UIActivityItemSource {
+extension BarcodeDetailsViewController: UIActivityItemSource {
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-        return "\(barcodeText!)\nDetected by Bcode - app url"
+        return "\(barcodeInfo.text!)\nDetected by Bcode - app url"
     }
     
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        return "\(barcodeText!)\nDetected by Bcode - app url"
+        return "\(barcodeInfo.text!)\nDetected by Bcode - app url"
     }
     
     func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -157,17 +158,17 @@
                         <outlet property="changeCameraButton" destination="1ti-er-cAL" id="Rl4-Vh-GMz"/>
                         <outlet property="scanButton" destination="o6D-X2-UrT" id="fqg-tn-Zoc"/>
                         <outlet property="scanButtonView" destination="QQl-fm-nUS" id="uYa-or-fXr"/>
-                        <segue destination="qaJ-Jq-MId" kind="show" identifier="showScanDetails" id="0MS-Uc-hox"/>
+                        <segue destination="qaJ-Jq-MId" kind="show" identifier="showBarcodeDetails" id="0MS-Uc-hox"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="517" y="141"/>
         </scene>
-        <!--Scan Details View Controller-->
+        <!--Barcode Details View Controller-->
         <scene sceneID="0k1-Q2-wQa">
             <objects>
-                <viewController id="qaJ-Jq-MId" customClass="ScanDetailsViewController" customModule="Bcode" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BarcodeDetailsViewController" id="qaJ-Jq-MId" customClass="BarcodeDetailsViewController" customModule="Bcode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XxQ-ka-jSk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,8 +176,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BO5-R4-ZKb">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detected Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBb-Ew-51g">
-                                        <rect key="frame" x="144" y="7.5" width="126.5" height="25.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barcode Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBb-Ew-51g">
+                                        <rect key="frame" x="133.5" y="7.5" width="147.5" height="25.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -203,17 +204,59 @@
                                     <constraint firstAttribute="trailing" secondItem="huJ-n1-X3c" secondAttribute="trailing" constant="12" id="mBY-5D-l0Z"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksg-VZ-NFT">
-                                <rect key="frame" x="24" y="40" width="366" height="384"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iA1-gd-QWx" customClass="DesignableView" customModule="Bcode" customModuleProvider="target">
+                                <rect key="frame" x="24" y="48" width="366" height="316"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksg-VZ-NFT">
+                                        <rect key="frame" x="8" y="8" width="350" height="300"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="ksg-VZ-NFT" firstAttribute="top" secondItem="iA1-gd-QWx" secondAttribute="top" constant="8" id="6Xd-5Y-9jX"/>
+                                    <constraint firstItem="ksg-VZ-NFT" firstAttribute="leading" secondItem="iA1-gd-QWx" secondAttribute="leading" constant="8" id="GZL-Xq-yY4"/>
+                                    <constraint firstAttribute="bottom" secondItem="ksg-VZ-NFT" secondAttribute="bottom" constant="8" id="u93-ET-81N"/>
+                                    <constraint firstAttribute="trailing" secondItem="ksg-VZ-NFT" secondAttribute="trailing" constant="8" id="wZe-Oa-YHy"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oP-ps-r8O" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                <rect key="frame" x="187" y="372" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="ECJ-4z-Cdw"/>
+                                    <constraint firstAttribute="height" constant="40" id="fc4-Yt-FnJ"/>
+                                </constraints>
+                                <color key="tintColor" name="ThemeColor1"/>
+                                <state key="normal" image="star" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" scale="large"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rounding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="favoriteButtonClick:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="vkh-xX-Dwm"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="qTH-iR-2tP">
-                                <rect key="frame" x="30" y="448" width="354" height="360"/>
+                                <rect key="frame" x="24" y="436" width="366" height="360"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymN-qa-h9q" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Fkj-0q-1pA"/>
@@ -229,7 +272,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDu-jY-z1S" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="62" width="354" height="50"/>
+                                        <rect key="frame" x="0.0" y="62" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="jyH-jk-3uQ"/>
@@ -245,7 +288,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-pQ-8gx" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="124" width="354" height="50"/>
+                                        <rect key="frame" x="0.0" y="124" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="PGp-s3-Ldw"/>
@@ -261,7 +304,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-iY-Gnr" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="186" width="354" height="50"/>
+                                        <rect key="frame" x="0.0" y="186" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="b7w-c5-vLW"/>
@@ -277,7 +320,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-Yv-roH" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="248" width="354" height="50"/>
+                                        <rect key="frame" x="0.0" y="248" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="uxZ-yv-LbB"/>
@@ -293,7 +336,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HId-Mo-j3B" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="310" width="354" height="50"/>
+                                        <rect key="frame" x="0.0" y="310" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Ny3-gK-Ndz"/>
@@ -313,22 +356,25 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ksg-VZ-NFT" firstAttribute="top" secondItem="BO5-R4-ZKb" secondAttribute="bottom" id="8Gc-5N-oQM"/>
+                            <constraint firstItem="9oP-ps-r8O" firstAttribute="centerX" secondItem="9Mh-f6-z2B" secondAttribute="centerX" id="0AN-mw-gk4"/>
+                            <constraint firstItem="9oP-ps-r8O" firstAttribute="top" secondItem="iA1-gd-QWx" secondAttribute="bottom" constant="8" id="0Cb-oA-uXx"/>
+                            <constraint firstItem="9Mh-f6-z2B" firstAttribute="trailing" secondItem="iA1-gd-QWx" secondAttribute="trailing" constant="24" id="1Pr-gF-OGe"/>
                             <constraint firstItem="BO5-R4-ZKb" firstAttribute="top" secondItem="9Mh-f6-z2B" secondAttribute="top" id="96J-GF-FRK"/>
                             <constraint firstItem="9Mh-f6-z2B" firstAttribute="trailing" secondItem="BO5-R4-ZKb" secondAttribute="trailing" id="Aci-Hd-Qxp"/>
-                            <constraint firstItem="9Mh-f6-z2B" firstAttribute="trailing" secondItem="qTH-iR-2tP" secondAttribute="trailing" constant="30" id="L71-1J-5C4"/>
+                            <constraint firstItem="9Mh-f6-z2B" firstAttribute="trailing" secondItem="qTH-iR-2tP" secondAttribute="trailing" constant="24" id="L71-1J-5C4"/>
+                            <constraint firstItem="iA1-gd-QWx" firstAttribute="top" secondItem="BO5-R4-ZKb" secondAttribute="bottom" constant="8" id="LZo-X2-U3h"/>
                             <constraint firstItem="BO5-R4-ZKb" firstAttribute="leading" secondItem="9Mh-f6-z2B" secondAttribute="leading" id="OmX-kH-1oc"/>
-                            <constraint firstItem="9Mh-f6-z2B" firstAttribute="bottom" secondItem="qTH-iR-2tP" secondAttribute="bottom" id="T9c-Vc-pRb"/>
-                            <constraint firstItem="qTH-iR-2tP" firstAttribute="leading" secondItem="9Mh-f6-z2B" secondAttribute="leading" constant="30" id="dve-bX-Vvh"/>
-                            <constraint firstItem="qTH-iR-2tP" firstAttribute="top" secondItem="ksg-VZ-NFT" secondAttribute="bottom" constant="24" id="fDL-KA-Qoa"/>
-                            <constraint firstItem="ksg-VZ-NFT" firstAttribute="leading" secondItem="9Mh-f6-z2B" secondAttribute="leading" constant="24" id="qgR-vb-Yki"/>
-                            <constraint firstItem="9Mh-f6-z2B" firstAttribute="trailing" secondItem="ksg-VZ-NFT" secondAttribute="trailing" constant="24" id="rgU-5W-pol"/>
+                            <constraint firstItem="qTH-iR-2tP" firstAttribute="top" secondItem="9oP-ps-r8O" secondAttribute="bottom" constant="24" id="Rbc-Lz-ROH"/>
+                            <constraint firstItem="9Mh-f6-z2B" firstAttribute="bottom" secondItem="qTH-iR-2tP" secondAttribute="bottom" constant="12" id="T9c-Vc-pRb"/>
+                            <constraint firstItem="qTH-iR-2tP" firstAttribute="leading" secondItem="9Mh-f6-z2B" secondAttribute="leading" constant="24" id="dve-bX-Vvh"/>
+                            <constraint firstItem="iA1-gd-QWx" firstAttribute="leading" secondItem="9Mh-f6-z2B" secondAttribute="leading" constant="24" id="hie-am-7qw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Mh-f6-z2B"/>
                     </view>
                     <navigationItem key="navigationItem" id="DkI-RN-upI"/>
                     <connections>
                         <outlet property="barcodeTextLabel" destination="ksg-VZ-NFT" id="0zC-gE-YIK"/>
+                        <outlet property="favoriteButton" destination="9oP-ps-r8O" id="ghN-2b-0l7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2O-gt-QPr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -348,5 +394,9 @@
         <image name="qr-white" width="50" height="50"/>
         <image name="safari.fill" catalog="system" width="64" height="60"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="56" height="64"/>
+        <image name="star" catalog="system" width="64" height="58"/>
+        <namedColor name="ThemeColor1">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

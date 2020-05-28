@@ -10,24 +10,29 @@ import UIKit
 
 class HistoryCell: UITableViewCell {
     //MARK: - Outlets
+    @IBOutlet weak var mainActionButton: RoundedButton!
     @IBOutlet weak var barcodeTextLabel: UILabel!
+    @IBOutlet weak var isFavoriteImageView: UIImageView!
     
-    
+    //MARK: - Variables
+    private var barcodeInfo:BarcodeInfo!
+
     //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.init(named: "ThemeColor1")
+        self.selectedBackgroundView = backgroundView
     }
-    
+
     //MARK: - Functions
     func setup(barcodeInfo:BarcodeInfo) {
-        barcodeTextLabel.text = barcodeInfo.text
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        self.barcodeInfo = barcodeInfo
         
-        // Configure the view for the selected state
+        mainActionButton.setImage(barcodeInfo.contentType.image, for: .normal)
+        barcodeTextLabel.text = barcodeInfo.text
+        isFavoriteImageView.isHidden = !barcodeInfo.isFavorite
     }
-    
 }

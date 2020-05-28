@@ -18,24 +18,38 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let nib = UINib(nibName: "FavoriteCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "FavoriteCell")
         
-        loadHistoryBarcodes()
+        loadFavoriteBarcodes()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //        //TODO: handle by delegate from presented view to know when dismissed
+        //        if(tableView.indexPathForSelectedRow != nil) {
+        //            tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
+        //        }
     }
     
     //MARK: - Functions
-    func loadHistoryBarcodes() {
+    func loadFavoriteBarcodes() {
         barcodeInfoArray = [BarcodeInfo]()
         
+        let types:[BarcodeContentType] = [.text, .url, .phoneNumber, .mapLocation, .image]
+        
         for i in 1..<21 {
-            let b = BarcodeInfo()
-            b.text = "barcode text \(i)"
+            let b = BarcodeInfo(text: "barcode text \(i)", contentType: types[(i-1)%5], isFavorite: true)
             barcodeInfoArray.append(b)
         }
         
         tableView.reloadData()
+    }
+    
+    func showBarcodeDetails() {
+        performSegue(withIdentifier: "showBarcodeDetails", sender: nil)
     }
     
     //MARK: - UITableViewDataSource
@@ -51,19 +65,21 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        showBarcodeDetails()
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if(segue.identifier == "showBarcodeDetails") {
+            if(tableView.indexPathForSelectedRow == nil) {
+                return
+            }
+            
+            let viewController = segue.destination as? BarcodeDetailsViewController
+            viewController?.barcodeInfo = barcodeInfoArray[tableView.indexPathForSelectedRow!.row]
+            
+            tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
+        }
     }
-    */
-
 }

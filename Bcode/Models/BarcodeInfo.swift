@@ -10,4 +10,12 @@ import Foundation
 
 class BarcodeInfo {
     var text:String!
+    var contentType:BarcodeContentType!
+    var isFavorite:Bool!
+    
+    init(text:String, contentType:BarcodeContentType, isFavorite:Bool) {
+        self.text = text
+        self.contentType = contentType
+        self.isFavorite = isFavorite
+    }
 }

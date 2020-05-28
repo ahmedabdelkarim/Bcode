@@ -19,7 +19,8 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     @IBOutlet weak var changeCameraButton: UIButton!
     
     //MARK: - Variables
-    private var detectedCode:String = ""
+    //private var detectedCode:String = ""
+    private var barcodeInfo:BarcodeInfo!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -59,13 +60,12 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         }
     }
     
-    func displayDetectedCode(code: String) {
-        detectedCode = code
-        performSegue(withIdentifier: "showScanDetails", sender: nil)
+    func showBarcodeDetails() {
+        performSegue(withIdentifier: "showBarcodeDetails", sender: nil)
     }
     
     func scanBarcodeWithType(_ type:AVMetadataObject.ObjectType) {
-        if(self.presentedViewController as? ScanDetailsViewController != nil) {
+        if(self.presentedViewController as? BarcodeDetailsViewController != nil) {
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -80,9 +80,14 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     //MARK: - Actions
     @IBAction func scanButtonClick(_ sender: Any) {
         
-        displayDetectedCode(code: "01221290994")
+        //TODO: Set contentType based on detectedCode
+        
+        barcodeInfo = BarcodeInfo(text: "01221290994", contentType: .text, isFavorite: false)
+        
+        showBarcodeDetails()
         
         return
+        
         
         
         if(barcodeScanner.isScanning) {
@@ -112,9 +117,9 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if(segue.identifier == "showScanDetails") {
-            let viewController = segue.destination as? ScanDetailsViewController
-            viewController?.barcodeText = detectedCode
+        if(segue.identifier == "showBarcodeDetails") {
+            let viewController = segue.destination as? BarcodeDetailsViewController
+            viewController?.barcodeInfo = barcodeInfo
         }
     }
     
@@ -126,7 +131,11 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         updateScanButtonState()
         updateChangeCameraButtonState()
         
-        displayDetectedCode(code: code)
+        //TODO: Set contentType based on detectedCode
+        
+        barcodeInfo = BarcodeInfo(text: code, contentType: .text, isFavorite: false)
+        
+        showBarcodeDetails()
     }
     
     func barcodeScannerFailedToDetectCode(scanner: BarcodeScanner) {
