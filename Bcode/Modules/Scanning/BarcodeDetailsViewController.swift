@@ -55,12 +55,12 @@ class BarcodeDetailsViewController: UIViewController {
         
         //TODO: save object in device data
         
-        
         setFavoriteButtonImage()
     }
     
     @IBAction func copyTextButtonClicked(_ sender: Any) {
-        UIPasteboard.general.string = "\(barcodeInfo.text!)\nDetected by Bcode - app url"
+        BarcodeActions.copyToClipboard(text: barcodeInfo.text)
+
         //TODO: show animated checkmark to confirm copied
         
     }
@@ -72,42 +72,20 @@ class BarcodeDetailsViewController: UIViewController {
     }
     
     @IBAction func openUrlButtonClicked(_ sender: Any) {
-        if let url = URL(string: barcodeInfo.text) {
-            UIApplication.shared.open(url)
-        }
-        else {
-            //TODO: show cannot open url
-        }
+        BarcodeActions.openLink(link: barcodeInfo.text)
     }
     
     @IBAction func phoneCallButtonClicked(_ sender: Any) {
-        if let url = URL(string: "tel://" + barcodeInfo.text) {
-            UIApplication.shared.open(url)
-        }
-        else {
-            //TODO: show cannot call number
-        }
+        BarcodeActions.callNumber(number: barcodeInfo.text)
     }
     
     @IBAction func openInMapsButtonClicked(_ sender: Any) {
-        
+        BarcodeActions.openMapLocation(location: barcodeInfo.text)
     }
     
     @IBAction func openImageButtonClicked(_ sender: Any) {
-        
+        BarcodeActions.openImage(image: barcodeInfo.text)
     }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 

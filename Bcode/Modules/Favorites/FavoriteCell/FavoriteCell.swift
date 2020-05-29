@@ -31,8 +31,13 @@ class FavoriteCell: UITableViewCell {
     func setup(barcodeInfo:BarcodeInfo) {
         self.barcodeInfo = barcodeInfo
         
-        mainActionButton.setImage(barcodeInfo.contentType.image, for: .normal)
+        mainActionButton.setImage(barcodeInfo.actionImage, for: .normal)
         barcodeTextLabel.text = barcodeInfo.text
         isFavoriteImageView.isHidden = !barcodeInfo.isFavorite
+    }
+    
+    //MARK: - Actions
+    @IBAction func mainActionButtonClick(_ sender: Any) {
+        barcodeInfo.performMainAction()
     }
 }

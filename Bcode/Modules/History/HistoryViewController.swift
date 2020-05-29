@@ -14,6 +14,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //MARK: - Variables
     private var barcodeInfoArray:[BarcodeInfo]!
+    private var allBarcodeInfoArray:[BarcodeInfo]!
+    private var linksBarcodeInfoArray:[BarcodeInfo]!
+    private var textBarcodeInfoArray:[BarcodeInfo]!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -36,22 +39,69 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //MARK: - Functions
     func loadHistoryBarcodes() {
-        barcodeInfoArray = [BarcodeInfo]()
+        allBarcodeInfoArray = [BarcodeInfo]()
         
-        let types:[BarcodeContentType] = [.text, .url, .phoneNumber, .mapLocation, .image]
+        let types:[BarcodeContentType] = [.text, .link, .phoneNumber, .mapLocation, .image]
         
         var favorite = false
         for i in 1..<21 {
-            let b = BarcodeInfo(text: "barcode text \(i)", contentType: types[(i-1)%5], isFavorite: favorite)
+            var text = ""
+            switch types[(i-1)%5] {
+            case .text:
+                text = "Ahmed Abdelkarim"
+                break
+            case .link:
+                text = "http://www.google.com"
+                break
+            case .phoneNumber:
+                text = "01221290994"
+                break
+            case .mapLocation:
+                text = "30.5,31.5"
+                break
+            case .image:
+                text = "base64-image-string"
+                break
+            }
+            
+            let b = BarcodeInfo(text: text, contentType: types[(i-1)%5], isFavorite: favorite)
             favorite = !favorite
-            barcodeInfoArray.append(b)
+            allBarcodeInfoArray.append(b)
         }
         
+        barcodeInfoArray = allBarcodeInfoArray
         tableView.reloadData()
     }
     
     func showBarcodeDetails() {
         performSegue(withIdentifier: "showBarcodeDetails", sender: nil)
+    }
+    
+    //MARK: - Actions
+    @IBAction func selectedCategoryChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            barcodeInfoArray = allBarcodeInfoArray
+            break
+        case 1:
+            if(linksBarcodeInfoArray == nil) {
+                linksBarcodeInfoArray = allBarcodeInfoArray.filter { $0.contentType == .link }
+            }
+            
+            barcodeInfoArray = linksBarcodeInfoArray
+            break
+        case 2:
+            if(textBarcodeInfoArray == nil) {
+                textBarcodeInfoArray = allBarcodeInfoArray.filter { $0.contentType == .text }
+            }
+            
+            barcodeInfoArray = textBarcodeInfoArray
+            break
+        default:
+            break
+        }
+        
+        tableView.reloadData()
     }
     
     //MARK: - UITableViewDataSource

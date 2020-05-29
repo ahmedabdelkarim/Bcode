@@ -24,6 +24,9 @@
                                     <segment title="Text"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" name="ThemeColor1"/>
+                                <connections>
+                                    <action selector="selectedCategoryChanged:" destination="gaW-qr-pGd" eventType="valueChanged" id="Kjs-J3-WJ8"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h0J-bi-JTW">
                                 <rect key="frame" x="0.0" y="99" width="414" height="714"/>

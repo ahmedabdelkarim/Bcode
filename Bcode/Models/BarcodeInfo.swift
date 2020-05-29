@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class BarcodeInfo {
     var text:String!
@@ -17,5 +18,15 @@ class BarcodeInfo {
         self.text = text
         self.contentType = contentType
         self.isFavorite = isFavorite
+    }
+    
+    public var actionImage:UIImage? {
+        get {
+            return contentType.actionImage
+        }
+    }
+    
+    public func performMainAction() {
+        contentType.performMainAction(text: text)
     }
 }

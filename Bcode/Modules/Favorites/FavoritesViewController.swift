@@ -38,10 +38,29 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     func loadFavoriteBarcodes() {
         barcodeInfoArray = [BarcodeInfo]()
         
-        let types:[BarcodeContentType] = [.text, .url, .phoneNumber, .mapLocation, .image]
+        let types:[BarcodeContentType] = [.text, .link, .phoneNumber, .mapLocation, .image]
         
         for i in 1..<21 {
-            let b = BarcodeInfo(text: "barcode text \(i)", contentType: types[(i-1)%5], isFavorite: true)
+            var text = ""
+            switch types[(i-1)%5] {
+            case .text:
+                text = "Ahmed Abdelkarim"
+                break
+            case .link:
+                text = "http://www.google.com"
+                break
+            case .phoneNumber:
+                text = "01221290994"
+                break
+            case .mapLocation:
+                text = "30.5,31.5"
+                break
+            case .image:
+                text = "base64-image-string"
+                break
+            }
+            
+            let b = BarcodeInfo(text: text, contentType: types[(i-1)%5], isFavorite: true)
             barcodeInfoArray.append(b)
         }
         

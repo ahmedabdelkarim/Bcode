@@ -11,17 +11,17 @@ import UIKit
 
 enum BarcodeContentType:String {
     case text = "Text"
-    case url = "URL"
+    case link = "Link"
     case phoneNumber = "Phone Number"
     case mapLocation = "Map Location"
     case image = "Image"
     
-    public var image:UIImage? {
+    public var actionImage:UIImage? {
         get {
             switch self {
             case .text:
-                return UIImage(systemName: "textformat.abc")
-            case .url:
+                return UIImage(systemName: "doc.on.doc.fill")
+            case .link:
                 return UIImage(systemName: "safari.fill")
             case .phoneNumber:
                 return UIImage(systemName: "phone.fill")
@@ -30,6 +30,21 @@ enum BarcodeContentType:String {
             case .image:
                 return UIImage(systemName: "photo.fill")
             }
+        }
+    }
+    
+    public func performMainAction(text:String) {
+        switch self {
+        case .text:
+            BarcodeActions.copyToClipboard(text: text)
+        case .link:
+            BarcodeActions.openLink(link: text)
+        case .phoneNumber:
+            BarcodeActions.callNumber(number: text)
+        case .mapLocation:
+            BarcodeActions.openMapLocation(location: text)
+        case .image:
+            BarcodeActions.openImage(image: text)
         }
     }
 }
