@@ -75,6 +75,10 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         performSegue(withIdentifier: "showBarcodeDetails", sender: nil)
     }
     
+    override func scrollToTop() {
+        tableView.setContentOffset(CGPoint.zero, animated: true)
+    }
+    
     //MARK: - Actions
     @IBAction func selectedCategoryChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {

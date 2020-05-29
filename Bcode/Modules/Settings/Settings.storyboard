@@ -11,7 +11,7 @@
         <!--Settings-->
         <scene sceneID="OUc-rI-r27">
             <objects>
-                <viewController id="tVD-Tl-tqq" sceneMemberID="viewController">
+                <viewController id="tVD-Tl-tqq" customClass="SettingsViewController" customModule="Bcode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iQj-ny-cPE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -289,6 +289,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" landscapeImage="gear" selectedImage="gear" id="GaN-nk-wtv"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="scrollView" destination="fc0-tV-fQ8" id="NCa-H5-k3M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gf2-RQ-QmK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

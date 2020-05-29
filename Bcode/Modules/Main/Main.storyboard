@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="208" y="129"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main View Controller-->
         <scene sceneID="bcM-3R-hQg">
             <objects>
-                <tabBarController id="at7-J1-xc0" sceneMemberID="viewController">
+                <tabBarController id="at7-J1-xc0" customClass="MainViewController" customModule="Bcode" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="wOY-4r-YYG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

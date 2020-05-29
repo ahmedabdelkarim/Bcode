@@ -24,6 +24,9 @@
 		F541E4E9247DA3730005806F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F541E4E8247DA3730005806F /* GoogleService-Info.plist */; };
 		F54270A6247E9E15004D0142 /* DesignableControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54270A5247E9E15004D0142 /* DesignableControls.swift */; };
 		F5429C2C248118F2000A185D /* BarcodeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5429C2B248118F2000A185D /* BarcodeActions.swift */; };
+		F5429C30248128BF000A185D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5429C2F248128BF000A185D /* MainViewController.swift */; };
+		F5429C3224812D0B000A185D /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5429C3124812D0B000A185D /* UIViewControllerExtensions.swift */; };
+		F5429C3424812E9D000A185D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5429C3324812E9D000A185D /* SettingsViewController.swift */; };
 		F544A5D1247F06A800B8562A /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544A5CF247F06A800B8562A /* HistoryCell.swift */; };
 		F544A5D2247F06A800B8562A /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F544A5D0247F06A800B8562A /* HistoryCell.xib */; };
 		F544A5D7247F06E100B8562A /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F544A5D5247F06E100B8562A /* FavoriteCell.swift */; };
@@ -62,6 +65,9 @@
 		F541E4E8247DA3730005806F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F54270A5247E9E15004D0142 /* DesignableControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableControls.swift; sourceTree = "<group>"; };
 		F5429C2B248118F2000A185D /* BarcodeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeActions.swift; sourceTree = "<group>"; };
+		F5429C2F248128BF000A185D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F5429C3124812D0B000A185D /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		F5429C3324812E9D000A185D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F544A5CF247F06A800B8562A /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		F544A5D0247F06A800B8562A /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
 		F544A5D5247F06E100B8562A /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				F51E895E24672F5300960533 /* Main.storyboard */,
+				F5429C2F248128BF000A185D /* MainViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -174,6 +181,7 @@
 				F54270A5247E9E15004D0142 /* DesignableControls.swift */,
 				F541E4E6247D79E80005806F /* UIViewExtensions.swift */,
 				F5A6E6742480612700F282CF /* UISegmentedControlExtensions.swift */,
+				F5429C3124812D0B000A185D /* UIViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -279,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				F5F62D9C2473312B008042DF /* Settings.storyboard */,
+				F5429C3324812E9D000A185D /* SettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -419,12 +428,15 @@
 				F544A5D1247F06A800B8562A /* HistoryCell.swift in Sources */,
 				F544A5DF247F14A000B8562A /* FavoritesViewController.swift in Sources */,
 				F541E4E7247D79E80005806F /* UIViewExtensions.swift in Sources */,
+				F5429C3424812E9D000A185D /* SettingsViewController.swift in Sources */,
+				F5429C3224812D0B000A185D /* UIViewControllerExtensions.swift in Sources */,
 				F555A46D244FB21900D79C5D /* ShortcutItemHandler.swift in Sources */,
 				F5A6E6752480612700F282CF /* UISegmentedControlExtensions.swift in Sources */,
 				F54270A6247E9E15004D0142 /* DesignableControls.swift in Sources */,
 				F555A45F244F964300D79C5D /* BarcodeScannerDelegate.swift in Sources */,
 				F537967023E2001900CD57C6 /* SceneDelegate.swift in Sources */,
 				F5429C2C248118F2000A185D /* BarcodeActions.swift in Sources */,
+				F5429C30248128BF000A185D /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
