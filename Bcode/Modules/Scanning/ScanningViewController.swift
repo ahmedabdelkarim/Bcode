@@ -14,12 +14,18 @@ import AVFoundation
 class ScanningViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHandlerDelegate {
     //MARK: - Outlets
     @IBOutlet weak var barcodeScanner: BarcodeScanner!
+    
+    @IBOutlet weak var flashButton: RoundedButton!
+    @IBOutlet weak var statusLabel: UILabel!
+    
+    @IBOutlet weak var scanTypeButton: RoundedButton!
+    @IBOutlet weak var scanTypesView: UIView!
+    
     @IBOutlet weak var scanButtonView: UIView!
     @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var changeCameraButton: UIButton!
     
     //MARK: - Variables
-    //private var detectedCode:String = ""
     private var barcodeInfo:BarcodeInfo!
     
     //MARK: - Lifecycle
@@ -41,13 +47,11 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     func updateScanButtonState() {
         if(barcodeScanner.isScanning) {
             scanButton.setTitle("Stop", for: .normal)
-            //scanButtonView.borderColor = .systemRed
-            //scanButton.backgroundColor = .systemRed
+            scanButtonView.alpha = 0.75
         }
         else {
             scanButton.setTitle("Scan", for: .normal)
-            //scanButtonView.borderColor = .systemBlue
-            //scanButton.backgroundColor = .systemBlue
+            scanButtonView.alpha = 1
         }
     }
     
@@ -60,24 +64,88 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         }
     }
     
+    func updateScanTypeButton(imageName:String, title:String) {
+        scanTypeButton.setImage(UIImage(systemName: imageName), for: .normal)
+        scanTypeButton.setTitle(title, for: .normal)
+    }
+
+    func updateStausLabel(text: String = "") {
+        statusLabel.text = text
+    }
+    
+    func showScanTypes() {
+        flashButton.isEnabled = false
+        scanTypesView.isUserInteractionEnabled = true
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.flashButton.alpha = 0
+            self.statusLabel.alpha = 0
+            self.scanTypesView.alpha = 1
+        })
+    }
+    
+    func hideScanTypes() {
+        flashButton.isEnabled = true
+        scanTypesView.isUserInteractionEnabled = false
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.flashButton.alpha = 1
+            self.statusLabel.alpha = 1
+            self.scanTypesView.alpha = 0
+        })
+    }
+    
     func showBarcodeDetails() {
         performSegue(withIdentifier: "showBarcodeDetails", sender: nil)
     }
     
-    func scanBarcodeWithType(_ type:AVMetadataObject.ObjectType) {
+    func scanBarcodeWithTypes(_ types:[AVMetadataObject.ObjectType]) {
         if(self.presentedViewController as? BarcodeDetailsViewController != nil) {
             self.dismiss(animated: true, completion: nil)
         }
         
-        barcodeScanner.stopScanning()
-        barcodeScanner.supportedTypes = [type]
-        barcodeScanner.startScanning()
+        //barcodeScanner.stopScanning()
+        barcodeScanner.supportedTypes = types
+        //barcodeScanner.startScanning()
         
         updateScanButtonState()
         updateChangeCameraButtonState()
     }
     
     //MARK: - Actions
+    @IBAction func scalTypeButtonClick(_ sender: Any) {
+        if(scanTypesView.isUserInteractionEnabled == false) {
+            showScanTypes()
+        }
+        else {
+            hideScanTypes()
+        }
+    }
+    
+    @IBAction func scanAllButtonClick(_ sender: Any) {
+        updateScanTypeButton(imageName: "viewfinder", title: "ALL")
+        updateStausLabel(text: "Scanning ALL")
+        
+        hideScanTypes()
+        scanBarcodeWithTypes([.qr, .ean13])
+    }
+    
+    @IBAction func scanQRButtonClick(_ sender: Any) {
+        updateScanTypeButton(imageName: "qrcode.viewfinder", title: "QR")
+        updateStausLabel(text: "Scanning QR")
+        
+        hideScanTypes()
+        scanBarcodeWithTypes([.qr])
+    }
+    
+    @IBAction func scanEANButtonClick(_ sender: Any) {
+        updateScanTypeButton(imageName: "barcode.viewfinder", title: "EAN")
+        updateStausLabel(text: "Scanning EAN")
+        
+        hideScanTypes()
+        scanBarcodeWithTypes([.ean13])
+    }
+    
     @IBAction func scanButtonClick(_ sender: Any) {
         
         //TODO: Set contentType based on detectedCode
@@ -154,10 +222,10 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     
     //MARK: - ShortcutItemHandlerDelegate
     func scanQR() {
-        scanBarcodeWithType(.qr)
+        scanBarcodeWithTypes([.qr])
     }
     
     func scanEAN13() {
-        scanBarcodeWithType(.ean13)
+        scanBarcodeWithTypes([.ean13])
     }
 }

@@ -23,7 +23,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ist-cV-Egv" userLabel="SettingsView" customClass="DesignableView" customModule="Bcode" customModuleProvider="target">
                                 <rect key="frame" x="24" y="68" width="366" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mII-LE-kjX">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mII-LE-kjX" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                         <rect key="frame" x="24" y="5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="64i-Na-SpA"/>
@@ -31,6 +31,11 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="bolt.slash.fill" catalog="system"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning QR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-3L-ywv">
                                         <rect key="frame" x="136" y="10.5" width="94" height="19.5"/>
@@ -38,21 +43,107 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQg-7H-pLv">
-                                        <rect key="frame" x="316" y="7" width="26" height="26"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQg-7H-pLv" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="300.5" y="7" width="41.5" height="26"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="26" id="OwP-qx-lQj"/>
                                             <constraint firstAttribute="height" constant="26" id="sOC-3c-nJt"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                        <state key="normal" title="ALL" image="qr-white"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="tintColor" name="ThemeColor2"/>
+                                        <state key="normal" title="QR" image="qrcode.viewfinder" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="scalTypeButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3bi-92-hsJ"/>
+                                        </connections>
                                     </button>
+                                    <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxt-Ci-eub">
+                                        <rect key="frame" x="24" y="0.0" width="264.5" height="40"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="mLQ-k9-JvG">
+                                                <rect key="frame" x="49.5" y="10" width="166" height="20"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYF-t5-nX5" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="7Bh-oL-V9k"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                        <color key="tintColor" name="ThemeColor2"/>
+                                                        <state key="normal" title="ALL" image="viewfinder" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="light"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="scanAllButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dfm-I0-IDK"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xd-mb-BiX" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                                        <rect key="frame" x="64" y="0.0" width="36" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="qi7-Qm-ur9"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                        <color key="tintColor" name="ThemeColor2"/>
+                                                        <state key="normal" title="QR" image="qrcode.viewfinder" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="light"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="scanQRButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V1d-0n-hOf"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tid-ac-Ehs" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                                        <rect key="frame" x="124" y="0.0" width="42" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="hI2-LC-Hk9"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                                        <color key="tintColor" name="ThemeColor2"/>
+                                                        <state key="normal" title="EAN" image="barcode.viewfinder" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="light"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="scanEANButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E82-AA-b12"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="mLQ-k9-JvG" firstAttribute="centerY" secondItem="qxt-Ci-eub" secondAttribute="centerY" id="4X1-IP-T7s"/>
+                                            <constraint firstItem="mLQ-k9-JvG" firstAttribute="centerX" secondItem="qxt-Ci-eub" secondAttribute="centerX" id="HJJ-UU-M61"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.80393835616438358" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="qxt-Ci-eub" firstAttribute="leading" secondItem="ist-cV-Egv" secondAttribute="leading" constant="24" id="1iA-FX-1oi"/>
                                     <constraint firstAttribute="height" constant="40" id="Ird-6m-zis"/>
+                                    <constraint firstItem="qxt-Ci-eub" firstAttribute="top" secondItem="ist-cV-Egv" secondAttribute="top" id="Kfp-d2-4E7"/>
+                                    <constraint firstAttribute="bottom" secondItem="qxt-Ci-eub" secondAttribute="bottom" id="a5D-QE-P0W"/>
                                     <constraint firstItem="OBd-3L-ywv" firstAttribute="centerX" secondItem="ist-cV-Egv" secondAttribute="centerX" id="cmg-Nx-wUm"/>
                                     <constraint firstAttribute="trailing" secondItem="LQg-7H-pLv" secondAttribute="trailing" constant="24" id="cnP-gJ-aeE"/>
+                                    <constraint firstItem="LQg-7H-pLv" firstAttribute="leading" secondItem="qxt-Ci-eub" secondAttribute="trailing" constant="12" id="dne-X7-EzP"/>
                                     <constraint firstItem="OBd-3L-ywv" firstAttribute="centerY" secondItem="ist-cV-Egv" secondAttribute="centerY" id="nwD-UU-HdD"/>
                                     <constraint firstItem="mII-LE-kjX" firstAttribute="centerY" secondItem="ist-cV-Egv" secondAttribute="centerY" id="qm7-kV-gnd"/>
                                     <constraint firstItem="LQg-7H-pLv" firstAttribute="centerY" secondItem="ist-cV-Egv" secondAttribute="centerY" id="sZZ-fs-afr"/>
@@ -156,14 +247,18 @@
                     <connections>
                         <outlet property="barcodeScanner" destination="c4f-ht-NCO" id="8oZ-lA-GDR"/>
                         <outlet property="changeCameraButton" destination="1ti-er-cAL" id="Rl4-Vh-GMz"/>
+                        <outlet property="flashButton" destination="mII-LE-kjX" id="5R2-n9-NgW"/>
                         <outlet property="scanButton" destination="o6D-X2-UrT" id="fqg-tn-Zoc"/>
                         <outlet property="scanButtonView" destination="QQl-fm-nUS" id="uYa-or-fXr"/>
+                        <outlet property="scanTypeButton" destination="LQg-7H-pLv" id="eu1-c0-NKH"/>
+                        <outlet property="scanTypesView" destination="qxt-Ci-eub" id="nhE-BF-DYs"/>
+                        <outlet property="statusLabel" destination="OBd-3L-ywv" id="L4m-2c-Wt4"/>
                         <segue destination="qaJ-Jq-MId" kind="show" identifier="showBarcodeDetails" id="0MS-Uc-hox"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="517" y="141"/>
+            <point key="canvasLocation" x="515.94202898550725" y="140.625"/>
         </scene>
         <!--Barcode Details View Controller-->
         <scene sceneID="0k1-Q2-wQa">
@@ -383,6 +478,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="barcode.viewfinder" catalog="system" width="64" height="56"/>
         <image name="bolt.slash.fill" catalog="system" width="50" height="64"/>
         <image name="camera" catalog="system" width="64" height="48"/>
         <image name="camera.rotate" catalog="system" width="64" height="48"/>
@@ -391,12 +487,16 @@
         <image name="map.fill" catalog="system" width="64" height="56"/>
         <image name="phone.fill" catalog="system" width="64" height="56"/>
         <image name="photo.fill" catalog="system" width="64" height="46"/>
-        <image name="qr-white" width="50" height="50"/>
+        <image name="qrcode.viewfinder" catalog="system" width="64" height="56"/>
         <image name="safari.fill" catalog="system" width="64" height="60"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="56" height="64"/>
         <image name="star" catalog="system" width="64" height="58"/>
+        <image name="viewfinder" catalog="system" width="64" height="56"/>
         <namedColor name="ThemeColor1">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ThemeColor2">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
