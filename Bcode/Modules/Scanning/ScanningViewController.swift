@@ -44,23 +44,27 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     //MARK: - Functions
-    func updateScanButtonState() {
-        if(barcodeScanner.isScanning) {
-            scanButton.setTitle("Stop", for: .normal)
-            scanButtonView.alpha = 0.75
-        }
-        else {
-            scanButton.setTitle("Scan", for: .normal)
-            scanButtonView.alpha = 1
-        }
-    }
-    
-    func updateChangeCameraButtonState() {
-        if(barcodeScanner.isScanning) {
-            changeCameraButton.isEnabled = true
-        }
-        else {
-            changeCameraButton.isEnabled = false
+    func toggleCameraTorch() {
+        guard let device = AVCaptureDevice.default(for: .video) else { return }
+        
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+                
+                if device.torchMode == .off {
+                    device.torchMode = .on
+                    flashButton.setImage(UIImage(systemName: "bolt.fill"), for: .normal)
+                } else {
+                    device.torchMode = .off
+                    flashButton.setImage(UIImage(systemName: "bolt.slash.fill"), for: .normal)
+                }
+                
+                device.unlockForConfiguration()
+            } catch {
+                print("Torch could not be used")
+            }
+        } else {
+            print("Torch is not available")
         }
     }
     
@@ -95,6 +99,26 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         })
     }
     
+    func updateScanButtonState() {
+        if(barcodeScanner.isScanning) {
+            scanButton.setTitle("Stop", for: .normal)
+            scanButtonView.alpha = 0.75
+        }
+        else {
+            scanButton.setTitle("Scan", for: .normal)
+            scanButtonView.alpha = 1
+        }
+    }
+    
+    func updateChangeCameraButtonState() {
+        if(barcodeScanner.isScanning) {
+            changeCameraButton.isEnabled = true
+        }
+        else {
+            changeCameraButton.isEnabled = false
+        }
+    }
+    
     func showBarcodeDetails() {
         performSegue(withIdentifier: "showBarcodeDetails", sender: nil)
     }
@@ -113,6 +137,10 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     //MARK: - Actions
+    @IBAction func cameraFlashButtonClick(_ sender: Any) {
+        toggleCameraTorch()
+    }
+    
     @IBAction func scalTypeButtonClick(_ sender: Any) {
         if(scanTypesView.isUserInteractionEnabled == false) {
             showScanTypes()

@@ -23,45 +23,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ist-cV-Egv" userLabel="SettingsView" customClass="DesignableView" customModule="Bcode" customModuleProvider="target">
                                 <rect key="frame" x="24" y="68" width="366" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mII-LE-kjX" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="5" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="64i-Na-SpA"/>
-                                            <constraint firstAttribute="height" constant="30" id="IGn-54-dl5"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="bolt.slash.fill" catalog="system"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
-                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning QR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-3L-ywv">
-                                        <rect key="frame" x="136" y="10.5" width="94" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQg-7H-pLv" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="300.5" y="7" width="41.5" height="26"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="26" id="sOC-3c-nJt"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                        <color key="tintColor" name="ThemeColor2"/>
-                                        <state key="normal" title="QR" image="qrcode.viewfinder" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
-                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="scalTypeButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3bi-92-hsJ"/>
-                                        </connections>
-                                    </button>
                                     <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxt-Ci-eub">
                                         <rect key="frame" x="24" y="0.0" width="264.5" height="40"/>
                                         <subviews>
@@ -134,6 +95,48 @@
                                             <constraint firstItem="mLQ-k9-JvG" firstAttribute="centerX" secondItem="qxt-Ci-eub" secondAttribute="centerX" id="HJJ-UU-M61"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mII-LE-kjX" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="24" y="5" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="64i-Na-SpA"/>
+                                            <constraint firstAttribute="height" constant="30" id="IGn-54-dl5"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="bolt.slash.fill" catalog="system"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="cameraFlashButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ylF-je-MDH"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning QR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-3L-ywv">
+                                        <rect key="frame" x="136" y="10.5" width="94" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQg-7H-pLv" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="300.5" y="7" width="41.5" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="26" id="sOC-3c-nJt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <color key="tintColor" name="ThemeColor2"/>
+                                        <state key="normal" title="QR" image="qrcode.viewfinder" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="scalTypeButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3bi-92-hsJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.80393835616438358" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
