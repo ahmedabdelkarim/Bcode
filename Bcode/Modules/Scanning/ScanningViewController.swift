@@ -35,12 +35,20 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         updateScanButtonState()
         updateChangeCameraButtonState()
         
-        barcodeScanner.supportedTypes = [.qr, .ean13]
         barcodeScanner.delegate = self
+        barcodeScanner.supportedTypes = [.qr]
         
         ShortcutItemHandler.delegate = self
         
         print("isScanning: \(barcodeScanner.isScanning)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        barcodeScanner.vibrateWhenCodeDetected = Settings.vibrationEnabled
+        scanButtonView.isHidden = Settings.autoScan
+        updateChangeCameraButtonState()
     }
     
     //MARK: - Functions
@@ -111,11 +119,16 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     func updateChangeCameraButtonState() {
-        if(barcodeScanner.isScanning) {
+        if(Settings.autoScan){
             changeCameraButton.isEnabled = true
         }
         else {
-            changeCameraButton.isEnabled = false
+            if(barcodeScanner.isScanning) {
+                changeCameraButton.isEnabled = true
+            }
+            else {
+                changeCameraButton.isEnabled = false
+            }
         }
     }
     
@@ -200,7 +213,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     @IBAction func changeCameraButtonClick(_ sender: Any) {
-        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+        Behaviors.vibrate()
         
         if(barcodeScanner.camera == .backCamera) {
             barcodeScanner.camera = .frontCamera

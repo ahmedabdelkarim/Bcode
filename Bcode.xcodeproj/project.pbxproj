@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8CD6306739BCE06EE0EBBADE /* Pods_Bcode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65AC42CB3D5676259433B17C /* Pods_Bcode.framework */; };
 		F50A12EA246736E100BFF21B /* BarcodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50A12E8246736E100BFF21B /* BarcodeDetailsViewController.swift */; };
+		F514557D2482B8FF009BDC75 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F514557C2482B8FF009BDC75 /* Settings.swift */; };
+		F514557F2482C517009BDC75 /* Behaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F514557E2482C517009BDC75 /* Behaviors.swift */; };
 		F51E895F24672F5300960533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51E895E24672F5300960533 /* Main.storyboard */; };
 		F5296DDE248016960017B95B /* BarcodeContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5296DDD248016960017B95B /* BarcodeContentType.swift */; };
 		F5296DE024802A4D0017B95B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5296DDF24802A4D0017B95B /* Colors.xcassets */; };
@@ -48,6 +50,8 @@
 		65AC42CB3D5676259433B17C /* Pods_Bcode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bcode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C1B7217466F4233CC17F8B5 /* Pods-Bcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bcode.release.xcconfig"; path = "Target Support Files/Pods-Bcode/Pods-Bcode.release.xcconfig"; sourceTree = "<group>"; };
 		F50A12E8246736E100BFF21B /* BarcodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeDetailsViewController.swift; sourceTree = "<group>"; };
+		F514557C2482B8FF009BDC75 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		F514557E2482C517009BDC75 /* Behaviors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behaviors.swift; sourceTree = "<group>"; };
 		F51E895E24672F5300960533 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F5296DDD248016960017B95B /* BarcodeContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeContentType.swift; sourceTree = "<group>"; };
 		F5296DDF24802A4D0017B95B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -259,6 +263,8 @@
 			children = (
 				F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */,
 				F5429C2B248118F2000A185D /* BarcodeActions.swift */,
+				F514557C2482B8FF009BDC75 /* Settings.swift */,
+				F514557E2482C517009BDC75 /* Behaviors.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -420,9 +426,11 @@
 				F5296DDE248016960017B95B /* BarcodeContentType.swift in Sources */,
 				F537966E23E2001900CD57C6 /* AppDelegate.swift in Sources */,
 				F555A45D244F944100D79C5D /* ScannerCamera.swift in Sources */,
+				F514557F2482C517009BDC75 /* Behaviors.swift in Sources */,
 				F544A5DD247F0C2D00B8562A /* BarcodeInfo.swift in Sources */,
 				F537968323E203E400CD57C6 /* BarcodeScanner.swift in Sources */,
 				F544A5DA247F093000B8562A /* HistoryViewController.swift in Sources */,
+				F514557D2482B8FF009BDC75 /* Settings.swift in Sources */,
 				F541E4E4247D78C60005806F /* RoundedButton.swift in Sources */,
 				F50A12EA246736E100BFF21B /* BarcodeDetailsViewController.swift in Sources */,
 				F544A5D1247F06A800B8562A /* HistoryCell.swift in Sources */,
