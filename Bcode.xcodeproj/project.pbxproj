@@ -11,6 +11,9 @@
 		F50A12EA246736E100BFF21B /* BarcodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50A12E8246736E100BFF21B /* BarcodeDetailsViewController.swift */; };
 		F514557D2482B8FF009BDC75 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F514557C2482B8FF009BDC75 /* Settings.swift */; };
 		F514557F2482C517009BDC75 /* Behaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F514557E2482C517009BDC75 /* Behaviors.swift */; };
+		F51455812482D838009BDC75 /* VisionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51455802482D838009BDC75 /* VisionDetector.swift */; };
+		F51455842482E6ED009BDC75 /* VisionDetectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51455832482E6ED009BDC75 /* VisionDetectionType.swift */; };
+		F51455862482E717009BDC75 /* VisionDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51455852482E717009BDC75 /* VisionDetectorDelegate.swift */; };
 		F51E895F24672F5300960533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51E895E24672F5300960533 /* Main.storyboard */; };
 		F5296DDE248016960017B95B /* BarcodeContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5296DDD248016960017B95B /* BarcodeContentType.swift */; };
 		F5296DE024802A4D0017B95B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5296DDF24802A4D0017B95B /* Colors.xcassets */; };
@@ -52,6 +55,9 @@
 		F50A12E8246736E100BFF21B /* BarcodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeDetailsViewController.swift; sourceTree = "<group>"; };
 		F514557C2482B8FF009BDC75 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F514557E2482C517009BDC75 /* Behaviors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behaviors.swift; sourceTree = "<group>"; };
+		F51455802482D838009BDC75 /* VisionDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDetector.swift; sourceTree = "<group>"; };
+		F51455832482E6ED009BDC75 /* VisionDetectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDetectionType.swift; sourceTree = "<group>"; };
+		F51455852482E717009BDC75 /* VisionDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDetectorDelegate.swift; sourceTree = "<group>"; };
 		F51E895E24672F5300960533 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F5296DDD248016960017B95B /* BarcodeContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeContentType.swift; sourceTree = "<group>"; };
 		F5296DDF24802A4D0017B95B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -115,6 +121,16 @@
 				65AC42CB3D5676259433B17C /* Pods_Bcode.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F51455822482E6D3009BDC75 /* VisionDetection */ = {
+			isa = PBXGroup;
+			children = (
+				F51455802482D838009BDC75 /* VisionDetector.swift */,
+				F51455832482E6ED009BDC75 /* VisionDetectionType.swift */,
+				F51455852482E717009BDC75 /* VisionDetectorDelegate.swift */,
+			);
+			path = VisionDetection;
 			sourceTree = "<group>";
 		};
 		F51E895D24672F3A00960533 /* Main */ = {
@@ -245,6 +261,7 @@
 				F537967323E2001900CD57C6 /* Scanning.storyboard */,
 				F537967123E2001900CD57C6 /* ScanningViewController.swift */,
 				F50A12E8246736E100BFF21B /* BarcodeDetailsViewController.swift */,
+				F51455822482E6D3009BDC75 /* VisionDetection */,
 			);
 			path = Scanning;
 			sourceTree = "<group>";
@@ -432,12 +449,14 @@
 				F544A5DA247F093000B8562A /* HistoryViewController.swift in Sources */,
 				F514557D2482B8FF009BDC75 /* Settings.swift in Sources */,
 				F541E4E4247D78C60005806F /* RoundedButton.swift in Sources */,
+				F51455842482E6ED009BDC75 /* VisionDetectionType.swift in Sources */,
 				F50A12EA246736E100BFF21B /* BarcodeDetailsViewController.swift in Sources */,
 				F544A5D1247F06A800B8562A /* HistoryCell.swift in Sources */,
 				F544A5DF247F14A000B8562A /* FavoritesViewController.swift in Sources */,
 				F541E4E7247D79E80005806F /* UIViewExtensions.swift in Sources */,
 				F5429C3424812E9D000A185D /* SettingsViewController.swift in Sources */,
 				F5429C3224812D0B000A185D /* UIViewControllerExtensions.swift in Sources */,
+				F51455862482E717009BDC75 /* VisionDetectorDelegate.swift in Sources */,
 				F555A46D244FB21900D79C5D /* ShortcutItemHandler.swift in Sources */,
 				F5A6E6752480612700F282CF /* UISegmentedControlExtensions.swift in Sources */,
 				F54270A6247E9E15004D0142 /* DesignableControls.swift in Sources */,
@@ -445,6 +464,7 @@
 				F537967023E2001900CD57C6 /* SceneDelegate.swift in Sources */,
 				F5429C2C248118F2000A185D /* BarcodeActions.swift in Sources */,
 				F5429C30248128BF000A185D /* MainViewController.swift in Sources */,
+				F51455812482D838009BDC75 /* VisionDetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import AVFoundation
 
 //TODO: add UI to select barcode type (qr/ean13/all)
 
-class ScanningViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHandlerDelegate {
+class ScanningViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHandlerDelegate, VisionDetectorDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //MARK: - Outlets
     @IBOutlet weak var barcodeScanner: BarcodeScanner!
     
@@ -27,6 +27,8 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     
     //MARK: - Variables
     private var barcodeInfo:BarcodeInfo!
+    private var visionDetector:VisionDetector!
+    var imagePicker:UIImagePickerController!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -49,9 +51,19 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         barcodeScanner.vibrateWhenCodeDetected = Settings.vibrationEnabled
         scanButtonView.isHidden = Settings.autoScan
         updateChangeCameraButtonState()
+        hideScanTypes()
     }
     
     //MARK: - Functions
+    func initImagePicker() {
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.modalPresentationStyle = .overCurrentContext
+        imagePicker.modalTransitionStyle = .flipHorizontal
+    }
+    
     func toggleCameraTorch() {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
         
@@ -149,6 +161,27 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         updateChangeCameraButtonState()
     }
     
+    func detectBarcodeInImage(image: UIImage) {
+        if(visionDetector == nil) {
+            visionDetector = VisionDetector()
+            visionDetector.delegate = self
+        }
+        
+        var detectionType:VisionDetectionType!
+        
+        if(barcodeScanner.supportedTypes == [.qr]) {
+            detectionType = .qr
+        }
+        else if(barcodeScanner.supportedTypes == [.ean13]) {
+            detectionType = .ean13
+        }
+        else {
+            detectionType = .all
+        }
+        
+        visionDetector.detect(image: image, detectionType: detectionType)
+    }
+    
     //MARK: - Actions
     @IBAction func cameraFlashButtonClick(_ sender: Any) {
         toggleCameraTorch()
@@ -223,6 +256,17 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         }
     }
     
+    @IBAction func scanImageButtonClick(_ sender: Any) {
+        
+        //detectBarcodeInImage(image: UIImage(named: "eanimg")!)
+        
+        if(imagePicker == nil) {
+            initImagePicker()
+        }
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -240,7 +284,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         updateScanButtonState()
         updateChangeCameraButtonState()
         
-        //TODO: Set contentType based on detectedCode
+        //TODO: Set barcodeInfo.contentType based on detectedCode
         
         barcodeInfo = BarcodeInfo(text: code, contentType: .text, isFavorite: false)
         
@@ -259,6 +303,29 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         
         updateScanButtonState()
         updateChangeCameraButtonState()
+    }
+    
+    
+    //MARK: - UIImagePickerControllerDelegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.originalImage] as! UIImage? {
+            detectBarcodeInImage(image: pickedImage)
+        }
+        
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    //MARK: - VisionDetectorDelegate
+    func visionDetectorDetectedCode(detector: VisionDetector, code: String, type: VisionDetectionType) {
+        print("Detected code: \(code) - type: \(type)")
+    }
+    
+    func visionDetectorFailedToDetectCode(detector: VisionDetector) {
+        print("Failed to detect code in image")
     }
     
     //MARK: - ShortcutItemHandlerDelegate

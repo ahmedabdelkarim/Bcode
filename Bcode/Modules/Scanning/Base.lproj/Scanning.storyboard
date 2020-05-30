@@ -205,7 +205,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ti-er-cAL" userLabel="Switch Camera Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ti-er-cAL" userLabel="Switch Camera Button" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                         <rect key="frame" x="340" y="25" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="1hX-wy-wM9"/>
@@ -215,8 +215,21 @@
                                         <state key="normal" image="camera.rotate" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="large" weight="medium"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="changeCameraButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CXp-wJ-4Yw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFI-oQ-oY9">
+                                        <rect key="frame" x="15" y="35" width="80" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Scan Image"/>
+                                        <connections>
+                                            <action selector="scanImageButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sP7-hc-pxL"/>
                                         </connections>
                                     </button>
                                 </subviews>
