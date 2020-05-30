@@ -13,6 +13,11 @@ class BarcodeDetailsViewController: UIViewController {
     @IBOutlet weak var barcodeTextLabel: UILabel!
     @IBOutlet weak var favoriteButton: RoundedButton!
     
+    @IBOutlet weak var imageButton: RoundedButton!
+    @IBOutlet weak var mapLocationButton: RoundedButton!
+    @IBOutlet weak var phoneNumberButton: RoundedButton!
+    @IBOutlet weak var linkButton: RoundedButton!
+    
     //MARK: - Variables
     var barcodeInfo:BarcodeInfo!
     
@@ -42,7 +47,23 @@ class BarcodeDetailsViewController: UIViewController {
     }
     
     func displayProperActions() {
-        //TODO: show/hide actions based on barcodeInfo.contentType
+        //show/hide actions based on barcodeInfo.contentType
+        switch barcodeInfo.contentType {
+        case .link:
+            linkButton.isHidden = false
+            break
+        case .phoneNumber:
+            phoneNumberButton.isHidden = false
+            break
+        case .mapLocation:
+            mapLocationButton.isHidden = false
+            break
+        case .image:
+            imageButton.isHidden = false
+            break
+        default:
+            break
+        }
     }
 
     //MARK: - Actions

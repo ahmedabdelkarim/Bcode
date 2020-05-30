@@ -303,10 +303,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iA1-gd-QWx" customClass="DesignableView" customModule="Bcode" customModuleProvider="target">
-                                <rect key="frame" x="24" y="48" width="366" height="316"/>
+                                <rect key="frame" x="24" y="48" width="366" height="564"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksg-VZ-NFT">
-                                        <rect key="frame" x="8" y="8" width="350" height="300"/>
+                                        <rect key="frame" x="8" y="8" width="350" height="548"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -324,12 +324,12 @@
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="4"/>
+                                        <real key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oP-ps-r8O" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                <rect key="frame" x="187" y="372" width="40" height="40"/>
+                                <rect key="frame" x="187" y="620" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="ECJ-4z-Cdw"/>
                                     <constraint firstAttribute="height" constant="40" id="fc4-Yt-FnJ"/>
@@ -351,10 +351,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="qTH-iR-2tP">
-                                <rect key="frame" x="24" y="436" width="366" height="360"/>
+                                <rect key="frame" x="24" y="684" width="366" height="112"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymN-qa-h9q" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymN-qa-h9q" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-50" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Fkj-0q-1pA"/>
@@ -369,8 +369,8 @@
                                             <action selector="openImageButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="aVT-gb-jp7"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDu-jY-z1S" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="62" width="366" height="50"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDu-jY-z1S" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-50" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="jyH-jk-3uQ"/>
@@ -385,8 +385,8 @@
                                             <action selector="openInMapsButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="MUQ-4S-2GT"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-pQ-8gx" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="124" width="366" height="50"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-pQ-8gx" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-50" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="PGp-s3-Ldw"/>
@@ -401,8 +401,8 @@
                                             <action selector="phoneCallButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="JR4-yb-xbc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-iY-Gnr" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="186" width="366" height="50"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-iY-Gnr" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-50" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="b7w-c5-vLW"/>
@@ -418,7 +418,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-Yv-roH" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="248" width="366" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="uxZ-yv-LbB"/>
@@ -434,7 +434,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HId-Mo-j3B" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="310" width="366" height="50"/>
+                                        <rect key="frame" x="0.0" y="62" width="366" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Ny3-gK-Ndz"/>
@@ -473,6 +473,10 @@
                     <connections>
                         <outlet property="barcodeTextLabel" destination="ksg-VZ-NFT" id="0zC-gE-YIK"/>
                         <outlet property="favoriteButton" destination="9oP-ps-r8O" id="ghN-2b-0l7"/>
+                        <outlet property="imageButton" destination="ymN-qa-h9q" id="WQ2-2T-CnO"/>
+                        <outlet property="linkButton" destination="RUH-iY-Gnr" id="Hz1-Jz-UlS"/>
+                        <outlet property="mapLocationButton" destination="DDu-jY-z1S" id="uV5-oB-J61"/>
+                        <outlet property="phoneNumberButton" destination="j6c-pQ-8gx" id="hjA-EB-rfh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2O-gt-QPr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
