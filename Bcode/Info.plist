@@ -63,6 +63,16 @@
 			<key>UIApplicationShortcutItemType</key>
 			<string>ScanEAN13</string>
 		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>pick-image-50-black</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>scan image file</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Scan Image</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>ScanImage</string>
+		</dict>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

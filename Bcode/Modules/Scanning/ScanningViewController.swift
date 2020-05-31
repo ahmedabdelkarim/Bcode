@@ -21,9 +21,10 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     @IBOutlet weak var scanTypeButton: RoundedButton!
     @IBOutlet weak var scanTypesView: UIView!
     
+    @IBOutlet weak var scanImageButton: RoundedButton!
     @IBOutlet weak var scanButtonView: UIView!
-    @IBOutlet weak var scanButton: UIButton!
-    @IBOutlet weak var changeCameraButton: UIButton!
+    @IBOutlet weak var scanButton: RoundedButton!
+    @IBOutlet weak var changeCameraButton: RoundedButton!
     
     //MARK: - Variables
     private var barcodeInfo:BarcodeInfo!
@@ -92,7 +93,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         scanTypeButton.setImage(UIImage(systemName: imageName), for: .normal)
         scanTypeButton.setTitle(title, for: .normal)
     }
-
+    
     func updateStausLabel(text: String = "") {
         statusLabel.text = text
     }
@@ -144,8 +145,14 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         }
     }
     
-    func showBarcodeDetails() {
-        performSegue(withIdentifier: "showBarcodeDetails", sender: nil)
+    func showBarcodeDetails(text: String) {
+        
+        //TODO: Set contentType based on text (link, phone, location, image, ..)
+        
+        
+        barcodeInfo = BarcodeInfo(text: text, contentType: .text, isFavorite: false)
+        
+        self.performSegue(withIdentifier: "showBarcodeDetails", sender: self)
     }
     
     func scanBarcodeWithTypes(_ types:[AVMetadataObject.ObjectType]) {
@@ -222,11 +229,8 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     
     @IBAction func scanButtonClick(_ sender: Any) {
         
-        //TODO: Set contentType based on detectedCode
         
-        barcodeInfo = BarcodeInfo(text: "01221290994", contentType: .text, isFavorite: false)
-        
-        showBarcodeDetails()
+        showBarcodeDetails(text: "01221290994")
         
         return
         
@@ -257,8 +261,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     @IBAction func scanImageButtonClick(_ sender: Any) {
-        
-        //detectBarcodeInImage(image: UIImage(named: "eanimg")!)
+        scanImageButton.isUserInteractionEnabled = false
         
         if(imagePicker == nil) {
             initImagePicker()
@@ -284,11 +287,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         updateScanButtonState()
         updateChangeCameraButtonState()
         
-        //TODO: Set barcodeInfo.contentType based on detectedCode
-        
-        barcodeInfo = BarcodeInfo(text: code, contentType: .text, isFavorite: false)
-        
-        showBarcodeDetails()
+        showBarcodeDetails(text: code)
     }
     
     func barcodeScannerFailedToDetectCode(scanner: BarcodeScanner) {
@@ -309,23 +308,39 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     //MARK: - UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as! UIImage? {
-            detectBarcodeInImage(image: pickedImage)
+            picker.dismiss(animated: true, completion: {
+                self.detectBarcodeInImage(image: pickedImage)
+            })
         }
-        
-        picker.dismiss(animated: true)
+        else {
+            picker.dismiss(animated: true)
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
+        scanImageButton.isUserInteractionEnabled = true
     }
     
     //MARK: - VisionDetectorDelegate
-    func visionDetectorDetectedCode(detector: VisionDetector, code: String, type: VisionDetectionType) {
-        print("Detected code: \(code) - type: \(type)")
+    func visionDetectorDetectedCode(detector: VisionDetector, code: String) {
+        print("Detected code: \(code)")
+        
+        DispatchQueue.main.async {
+            self.showBarcodeDetails(text: code)
+            self.scanImageButton.isUserInteractionEnabled = true
+        }
     }
     
     func visionDetectorFailedToDetectCode(detector: VisionDetector) {
         print("Failed to detect code in image")
+        
+        DispatchQueue.main.async {
+            
+            //TODO: show error popup
+            
+            self.scanImageButton.isUserInteractionEnabled = true
+        }
     }
     
     //MARK: - ShortcutItemHandlerDelegate
@@ -335,5 +350,17 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     
     func scanEAN13() {
         scanBarcodeWithTypes([.ean13])
+    }
+    
+    func scanImage() {
+        if(self.presentedViewController as? BarcodeDetailsViewController != nil) {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        if(imagePicker == nil) {
+            initImagePicker()
+        }
+        
+        present(imagePicker, animated: true, completion: nil)
     }
 }

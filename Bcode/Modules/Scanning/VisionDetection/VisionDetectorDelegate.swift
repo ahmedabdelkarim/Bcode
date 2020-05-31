@@ -10,7 +10,7 @@ import Foundation
 
 protocol VisionDetectorDelegate {
     ///The code was detected and extracted successfully.
-    func visionDetectorDetectedCode(detector: VisionDetector, code: String, type: VisionDetectionType)
+    func visionDetectorDetectedCode(detector: VisionDetector, code: String)
     ///Couldn't detect code.
     func visionDetectorFailedToDetectCode(detector: VisionDetector)
 }

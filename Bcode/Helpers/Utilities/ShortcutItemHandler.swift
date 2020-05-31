@@ -13,6 +13,7 @@ class ShortcutItemHandler {
     
     private static let scanQR = "ScanQR"
     private static let scanEAN13 = "ScanEAN13"
+    private static let scanImage = "ScanImage"
     
     static func handle(_ shortcutItem: UIApplicationShortcutItem) {
         switch shortcutItem.type {
@@ -21,6 +22,9 @@ class ShortcutItemHandler {
             break
         case scanEAN13:
             delegate?.scanEAN13()
+            break
+        case scanImage:
+            delegate?.scanImage()
             break
         default:
             break
@@ -31,4 +35,5 @@ class ShortcutItemHandler {
 protocol ShortcutItemHandlerDelegate {
     func scanQR()
     func scanEAN13()
+    func scanImage()
 }
