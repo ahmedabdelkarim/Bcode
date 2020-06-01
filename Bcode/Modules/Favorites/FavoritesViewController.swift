@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BarcodeDetailsViewControllerDelegate {
     //MARK: - Outlets
     @IBOutlet weak var tableView:UITableView!
     
@@ -26,15 +26,6 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.register(nib, forCellReuseIdentifier: "FavoriteCell")
         
         loadFavoriteBarcodes()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //        //TODO: handle by delegate from presented view to know when dismissed
-        //        if(tableView.indexPathForSelectedRow != nil) {
-        //            tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
-        //        }
     }
     
     //MARK: - Functions
@@ -132,7 +123,13 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             
             let viewController = segue.destination as? BarcodeDetailsViewController
             viewController?.barcodeInfo = barcodeInfoArray[tableView.indexPathForSelectedRow!.row]
-            
+            viewController?.delegate = self
+        }
+    }
+    
+    //MARK: - BarcodeDetailsViewControllerDelegate
+    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo) {
+        if(tableView.indexPathForSelectedRow != nil) {
             tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
         }
     }

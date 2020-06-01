@@ -20,6 +20,7 @@ class BarcodeDetailsViewController: UIViewController {
     
     //MARK: - Variables
     var barcodeInfo:BarcodeInfo!
+    var delegate:BarcodeDetailsViewControllerDelegate?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -30,9 +31,16 @@ class BarcodeDetailsViewController: UIViewController {
         displayProperActions()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.delegate?.barcodeDetailsDismissed(viewController: self, barcodeInfo: self.barcodeInfo)
+    }
+    
     //MARK: - Functions
     func showBarcodeText() {
         barcodeTextLabel.text = barcodeInfo.text
+        
         //TODO: show thumbnails if needed (image if base64 image, map, phone nnumber indicator, web page or link, etc.)
         
     }
@@ -68,13 +76,16 @@ class BarcodeDetailsViewController: UIViewController {
 
     //MARK: - Actions
     @IBAction func dismissButtonClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            self.delegate?.barcodeDetailsDismissed(viewController: self, barcodeInfo: self.barcodeInfo)
+        })
     }
     
     @IBAction func favoriteButtonClick(_ sender: Any) {
         barcodeInfo.isFavorite = !barcodeInfo.isFavorite
         
         //TODO: save object in device data
+        
         
         setFavoriteButtonImage()
     }
@@ -123,4 +134,8 @@ extension BarcodeDetailsViewController: UIActivityItemSource {
     func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
         return "Detected by Bcode"
     }
+}
+
+protocol BarcodeDetailsViewControllerDelegate {
+    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo)
 }

@@ -9,8 +9,6 @@
 import UIKit
 import AVFoundation
 
-//TODO: add UI to select barcode type (qr/ean13/all)
-
 class ScanningViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHandlerDelegate, VisionDetectorDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //MARK: - Outlets
     @IBOutlet weak var barcodeScanner: BarcodeScanner!
@@ -146,13 +144,28 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     func showBarcodeDetails(text: String) {
-        
-        //TODO: Set contentType based on text (link, phone, location, image, ..)
-        
-        
-        barcodeInfo = BarcodeInfo(text: text, contentType: .text, isFavorite: false)
+        let contentType = getContentType(text: text)
+        barcodeInfo = BarcodeInfo(text: text, contentType: contentType, isFavorite: false)
         
         self.performSegue(withIdentifier: "showBarcodeDetails", sender: self)
+    }
+    
+    func getContentType(text: String) -> BarcodeContentType {
+        if(text.isLink()) {
+            return .link
+        }
+        else if(text.isPhoneNumber()) {
+            return .phoneNumber
+        }
+        else if(text.isAddress()) {
+            return .mapLocation
+        }
+        else if(text.isBase64Image()) {
+            return .image
+        }
+        else {
+            return .text
+        }
     }
     
     func scanBarcodeWithTypes(_ types:[AVMetadataObject.ObjectType]) {
@@ -231,7 +244,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         
         //for testing on simulator
         
-        showBarcodeDetails(text: "01221290994")
+        showBarcodeDetails(text: "9 st. maadi cairo egypt")
         
         return
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BarcodeDetailsViewControllerDelegate {
     //MARK: - Outlets
     @IBOutlet weak var tableView:UITableView!
     
@@ -26,15 +26,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(nib, forCellReuseIdentifier: "HistoryCell")
         
         loadHistoryBarcodes()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //        //TODO: handle by delegate from presented view to know when dismissed
-        //        if(tableView.indexPathForSelectedRow != nil) {
-        //            tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
-        //        }
     }
     
     //MARK: - Functions
@@ -135,7 +126,13 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             
             let viewController = segue.destination as? BarcodeDetailsViewController
             viewController?.barcodeInfo = barcodeInfoArray[tableView.indexPathForSelectedRow!.row]
-            
+            viewController?.delegate = self
+        }
+    }
+    
+    //MARK: - BarcodeDetailsViewControllerDelegate
+    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo) {
+        if(tableView.indexPathForSelectedRow != nil) {
             tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
         }
     }
