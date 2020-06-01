@@ -65,4 +65,15 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    @IBAction func facebookTapped(_ sender: Any) {
+        BarcodeActions.openLink(link: "https://www.facebook.com/ahmed.karim.tantawy")
+    }
+    
+    @IBAction func linkedinTapped(_ sender: Any) {
+        BarcodeActions.openLink(link: "https://www.linkedin.com/in/ahmedabdelkarim")
+    }
+    
+    @IBAction func websiteTapped(_ sender: Any) {
+        BarcodeActions.openLink(link: "https://ahmedabdelkarim.wordpress.com/")
+    }
 }

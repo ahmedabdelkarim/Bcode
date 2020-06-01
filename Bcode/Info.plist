@@ -65,7 +65,7 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>pick-image-50-black</string>
+			<string>pick-image-black</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>scan image file</string>
 			<key>UIApplicationShortcutItemTitle</key>
