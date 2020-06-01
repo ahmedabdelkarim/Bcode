@@ -229,6 +229,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     
     @IBAction func scanButtonClick(_ sender: Any) {
         
+        //for testing on simulator
         
         showBarcodeDetails(text: "01221290994")
         

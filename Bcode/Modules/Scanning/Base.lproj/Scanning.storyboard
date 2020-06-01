@@ -101,7 +101,7 @@
                                             <constraint firstAttribute="width" constant="30" id="64i-Na-SpA"/>
                                             <constraint firstAttribute="height" constant="30" id="IGn-54-dl5"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="ThemeColor2"/>
                                         <state key="normal" image="bolt.slash.fill" catalog="system"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="pressedColor">
@@ -115,7 +115,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning QR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-3L-ywv">
                                         <rect key="frame" x="136" y="10.5" width="94" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="ThemeColor2"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQg-7H-pLv" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
@@ -138,7 +138,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.80393835616438358" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="ThemeColor1Translucent"/>
                                 <constraints>
                                     <constraint firstItem="qxt-Ci-eub" firstAttribute="leading" secondItem="ist-cV-Egv" secondAttribute="leading" constant="24" id="1iA-FX-1oi"/>
                                     <constraint firstAttribute="height" constant="40" id="Ird-6m-zis"/>
@@ -163,7 +163,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFI-oQ-oY9" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                         <rect key="frame" x="24" y="25" width="50" height="50"/>
-                                        <color key="backgroundColor" name="ThemeColor2"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="XGR-wC-ows"/>
                                             <constraint firstAttribute="width" constant="50" id="yPj-eA-Z8q"/>
@@ -186,13 +186,13 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6D-X2-UrT" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                                 <rect key="frame" x="5" y="5" width="64" height="64"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="ThemeColor1"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="64" id="QPm-uZ-zGp"/>
                                                     <constraint firstAttribute="width" constant="64" id="dM4-qj-pvc"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="ThemeColor2"/>
                                                 <state key="normal" title="Scan">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -221,17 +221,18 @@
                                                 <integer key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" name="ThemeColor1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ti-er-cAL" userLabel="Switch Camera Button" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                         <rect key="frame" x="340" y="25" width="50" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="1hX-wy-wM9"/>
                                             <constraint firstAttribute="height" constant="50" id="RUs-UK-Ku0"/>
                                         </constraints>
-                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="tintColor" name="ThemeColor1"/>
                                         <state key="normal" image="camera.rotate" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="large" weight="medium"/>
                                         </state>
@@ -257,7 +258,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="ThemeColor2"/>
                         <constraints>
                             <constraint firstItem="Q7G-hS-6h7" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="793-vQ-fa7"/>
                             <constraint firstItem="c4f-ht-NCO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pob-bV-8Ym"/>
@@ -303,9 +304,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barcode Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBb-Ew-51g">
-                                        <rect key="frame" x="133.5" y="7.5" width="147.5" height="25.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="142" y="9.5" width="130.5" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <color key="textColor" name="ThemeColor1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huJ-n1-X3c">
@@ -314,14 +315,14 @@
                                             <constraint firstAttribute="height" constant="30" id="FrD-Rb-5NZ"/>
                                             <constraint firstAttribute="width" constant="30" id="nYt-00-5za"/>
                                         </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="ThemeColor1"/>
                                         <state key="normal" image="chevron.down" catalog="system"/>
                                         <connections>
                                             <action selector="dismissButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="8aO-rW-d6j"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Bv7-yK-esQ"/>
                                     <constraint firstItem="huJ-n1-X3c" firstAttribute="centerY" secondItem="BO5-R4-ZKb" secondAttribute="centerY" id="Q3j-c6-9ya"/>
@@ -336,11 +337,11 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksg-VZ-NFT">
                                         <rect key="frame" x="8" y="8" width="350" height="548"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="ThemeColor1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="ksg-VZ-NFT" firstAttribute="top" secondItem="iA1-gd-QWx" secondAttribute="top" constant="8" id="6Xd-5Y-9jX"/>
                                     <constraint firstItem="ksg-VZ-NFT" firstAttribute="leading" secondItem="iA1-gd-QWx" secondAttribute="leading" constant="8" id="GZL-Xq-yY4"/>
@@ -358,6 +359,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oP-ps-r8O" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                 <rect key="frame" x="187" y="620" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="ECJ-4z-Cdw"/>
                                     <constraint firstAttribute="height" constant="40" id="fc4-Yt-FnJ"/>
@@ -383,11 +385,11 @@
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymN-qa-h9q" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-50" width="366" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="ThemeColor1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Fkj-0q-1pA"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="ThemeColor2"/>
                                         <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
                                         <state key="normal" title="Open Image" image="photo.fill" catalog="system">
@@ -399,11 +401,11 @@
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDu-jY-z1S" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-50" width="366" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="ThemeColor1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="jyH-jk-3uQ"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="ThemeColor2"/>
                                         <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
                                         <state key="normal" title="Open in Maps" image="map.fill" catalog="system">
@@ -415,11 +417,11 @@
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6c-pQ-8gx" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-50" width="366" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="ThemeColor1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="PGp-s3-Ldw"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="ThemeColor2"/>
                                         <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
                                         <state key="normal" title="Call Phone Number" image="phone.fill" catalog="system">
@@ -431,11 +433,11 @@
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-iY-Gnr" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-50" width="366" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="ThemeColor1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="b7w-c5-vLW"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="ThemeColor2"/>
                                         <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
                                         <state key="normal" title="Open in Browser" image="safari.fill" catalog="system">
@@ -447,11 +449,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-Yv-roH" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="ThemeColor1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="uxZ-yv-LbB"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="ThemeColor2"/>
                                         <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
                                         <state key="normal" title="Share" image="square.and.arrow.up.fill" catalog="system">
@@ -463,11 +465,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HId-Mo-j3B" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="62" width="366" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="ThemeColor1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Ny3-gK-Ndz"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="ThemeColor2"/>
                                         <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
                                         <state key="normal" title="Copy Text" image="doc.on.doc.fill" catalog="system">
@@ -480,7 +482,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="ThemeColor2"/>
                         <constraints>
                             <constraint firstItem="9oP-ps-r8O" firstAttribute="centerX" secondItem="9Mh-f6-z2B" secondAttribute="centerX" id="0AN-mw-gk4"/>
                             <constraint firstItem="9oP-ps-r8O" firstAttribute="top" secondItem="iA1-gd-QWx" secondAttribute="bottom" constant="8" id="0Cb-oA-uXx"/>
@@ -530,6 +532,9 @@
         <image name="viewfinder" catalog="system" width="64" height="56"/>
         <namedColor name="ThemeColor1">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ThemeColor1Translucent">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ThemeColor2">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

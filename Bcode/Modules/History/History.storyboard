@@ -18,6 +18,7 @@
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cr1-He-t39" customClass="DesignableSegmentedControl" customModule="Bcode" customModuleProvider="target">
                                 <rect key="frame" x="12" y="56" width="390" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="All"/>
                                     <segment title="Links"/>
@@ -30,14 +31,14 @@
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h0J-bi-JTW">
                                 <rect key="frame" x="0.0" y="99" width="414" height="714"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gaW-qr-pGd" id="k9B-eI-lHp"/>
                                     <outlet property="delegate" destination="gaW-qr-pGd" id="g44-3O-aua"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="ThemeColor2"/>
                         <constraints>
                             <constraint firstItem="5oZ-0g-HL3" firstAttribute="bottom" secondItem="h0J-bi-JTW" secondAttribute="bottom" id="AX1-3u-kDs"/>
                             <constraint firstItem="5oZ-0g-HL3" firstAttribute="trailing" secondItem="h0J-bi-JTW" secondAttribute="trailing" id="Gc0-bJ-PIK"/>
@@ -74,6 +75,9 @@
     <resources>
         <namedColor name="ThemeColor1">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ThemeColor2">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -16,16 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ts5-Ku-0nn">
-                                <rect key="frame" x="0.0" y="99" width="414" height="714"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="NT1-cd-19Y" id="SS8-1E-3OE"/>
-                                    <outlet property="delegate" destination="NT1-cd-19Y" id="ce7-Xl-mDD"/>
-                                </connections>
-                            </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="faJ-Jr-1Gl" customClass="DesignableSegmentedControl" customModule="Bcode" customModuleProvider="target">
                                 <rect key="frame" x="12" y="56" width="390" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="All"/>
                                     <segment title="Links"/>
@@ -36,8 +29,16 @@
                                     <action selector="selectedCategoryChanged:" destination="NT1-cd-19Y" eventType="valueChanged" id="Oe6-RD-edV"/>
                                 </connections>
                             </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ts5-Ku-0nn">
+                                <rect key="frame" x="0.0" y="99" width="414" height="714"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="NT1-cd-19Y" id="SS8-1E-3OE"/>
+                                    <outlet property="delegate" destination="NT1-cd-19Y" id="ce7-Xl-mDD"/>
+                                </connections>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="ThemeColor2"/>
                         <constraints>
                             <constraint firstItem="f9U-b0-jyZ" firstAttribute="trailing" secondItem="Ts5-Ku-0nn" secondAttribute="trailing" id="1Hf-L6-jYx"/>
                             <constraint firstItem="faJ-Jr-1Gl" firstAttribute="top" secondItem="f9U-b0-jyZ" secondAttribute="top" constant="12" id="7Vf-dq-ZDc"/>
@@ -74,6 +75,9 @@
     <resources>
         <namedColor name="ThemeColor1">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ThemeColor2">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

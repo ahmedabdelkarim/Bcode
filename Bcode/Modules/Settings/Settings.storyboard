@@ -25,10 +25,10 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Pgr-Qa-YBA">
                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="76"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENERAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isg-bt-O5y">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENERAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isg-bt-O5y">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" name="ThemeColor1"/>
+                                                        <color key="textColor" name="ThemeColor1Translucent"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHy-jD-Cxq" customClass="DesignableView" customModule="Bcode" customModuleProvider="target">
@@ -63,7 +63,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" name="ThemeColor2Variant"/>
+                                                        <color key="backgroundColor" name="ThemeColor1Highlight"/>
                                                         <constraints>
                                                             <constraint firstItem="jfR-08-CvZ" firstAttribute="top" secondItem="sHy-jD-Cxq" secondAttribute="top" constant="8" id="6vz-fN-oIB"/>
                                                             <constraint firstItem="jfR-08-CvZ" firstAttribute="leading" secondItem="sHy-jD-Cxq" secondAttribute="leading" constant="8" id="PkM-2A-g2z"/>
@@ -81,10 +81,10 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="sRn-En-iYV">
                                                 <rect key="frame" x="0.0" y="100" width="366" height="131"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCAN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Le6-J9-11l">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCAN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Le6-J9-11l">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" name="ThemeColor1"/>
+                                                        <color key="textColor" name="ThemeColor1Translucent"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3G-ug-Ens" customClass="DesignableView" customModule="Bcode" customModuleProvider="target">
@@ -132,7 +132,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" name="ThemeColor2Variant"/>
+                                                        <color key="backgroundColor" name="ThemeColor1Highlight"/>
                                                         <constraints>
                                                             <constraint firstItem="a6Z-ch-2TG" firstAttribute="leading" secondItem="v3G-ug-Ens" secondAttribute="leading" constant="8" id="674-hm-etS"/>
                                                             <constraint firstItem="a6Z-ch-2TG" firstAttribute="top" secondItem="v3G-ug-Ens" secondAttribute="top" constant="8" id="Kh5-oX-clZ"/>
@@ -150,10 +150,10 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="7iX-nY-IMa">
                                                 <rect key="frame" x="0.0" y="255" width="366" height="76"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SYNC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wq-N7-6Jk">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SYNC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wq-N7-6Jk">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" name="ThemeColor1"/>
+                                                        <color key="textColor" name="ThemeColor1Translucent"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eD6-NJ-qCq" customClass="DesignableView" customModule="Bcode" customModuleProvider="target">
@@ -183,7 +183,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" name="ThemeColor2Variant"/>
+                                                        <color key="backgroundColor" name="ThemeColor1Highlight"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="wf1-mc-qHf" secondAttribute="bottom" constant="8" id="83S-aw-2ju"/>
                                                             <constraint firstItem="wf1-mc-qHf" firstAttribute="top" secondItem="eD6-NJ-qCq" secondAttribute="top" constant="8" id="BWg-ul-gfl"/>
@@ -201,10 +201,10 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hca-ST-5SU">
                                                 <rect key="frame" x="0.0" y="355" width="366" height="183"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOCIAL MEDIA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgW-XL-Cw9">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOCIAL MEDIA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgW-XL-Cw9">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" name="ThemeColor1"/>
+                                                        <color key="textColor" name="ThemeColor1Translucent"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghV-Ez-rJf" customClass="DesignableView" customModule="Bcode" customModuleProvider="target">
@@ -297,7 +297,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" name="ThemeColor2Variant"/>
+                                                        <color key="backgroundColor" name="ThemeColor1Highlight"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="lCz-nX-PEX" secondAttribute="bottom" constant="8" id="12i-MZ-tdf"/>
                                                             <constraint firstItem="lCz-nX-PEX" firstAttribute="top" secondItem="ghV-Ez-rJf" secondAttribute="top" constant="8" id="WAH-Sp-OZW"/>
@@ -374,11 +374,14 @@
         <namedColor name="ThemeColor1">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="ThemeColor1Highlight">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.029999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ThemeColor1Translucent">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.8003390302658081" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ThemeColor2">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="ThemeColor2Variant">
-            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

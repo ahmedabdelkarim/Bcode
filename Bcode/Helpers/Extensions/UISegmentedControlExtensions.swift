@@ -11,8 +11,8 @@ import UIKit
 
 extension UISegmentedControl {
     func setCustomStyle() {
-        setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
+        setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "ThemeColor1")!], for: .normal)
         setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .highlighted)
-        setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "ThemeColor2")!], for: .selected)
     }
 }
