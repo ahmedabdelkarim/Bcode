@@ -10,28 +10,28 @@ import Foundation
 
 extension String {
     func isLink() -> Bool {
-        return isType(type: .link)
+        return isOfType(type: .link)
     }
     
     func isPhoneNumber() -> Bool {
-        return isType(type: .phoneNumber)
+        return isOfType(type: .phoneNumber)
+    }
+    
+    func isDate() -> Bool {
+        return isOfType(type: .date)
     }
     
     //not working well
     func isAddress() -> Bool {
-        return isType(type: .address)
+        return isOfType(type: .address)
     }
     
+    //implement
     func isBase64Image() -> Bool {
-        
-        //TODO: check
-        
-        
         return false
     }
     
-    
-    func isType(type: NSTextCheckingResult.CheckingType) -> Bool {
+    func isOfType(type: NSTextCheckingResult.CheckingType) -> Bool {
         do {
             let detector = try NSDataDetector(types: type.rawValue)
             let matches = detector.matches(in: self, options: [], range: NSMakeRange(0, self.count))

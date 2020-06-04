@@ -20,17 +20,15 @@ class SettingsViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loadSettings()
+        multipleScansSwitch.isEnabled = autoScanSwitch.isOn
     }
     
     //MARK: - Functions
     func loadSettings() {
         vibrationEnabledSwitch.isOn = Settings.vibrationEnabled
         autoScanSwitch.isOn = Settings.autoScan
-        
-        multipleScansSwitch.isEnabled = autoScanSwitch.isOn
-        
         multipleScansSwitch.isOn = Settings.multipleScans
         syncToiCloudSwitch.isOn = Settings.syncToiCloud
     }

@@ -12,6 +12,52 @@ class Settings {
     //MARK: - Variables
     private static let defaults = UserDefaults.standard
     
+    /// Indicate if settings are stored on device. Used to make sure that settings are stored in first run for the app.
+    private static var defaultSettingsStored:Bool {
+        get {
+            return defaults.bool(forKey: "defaultSettingsStored")
+        }
+        set {
+            defaults.set(newValue, forKey: "defaultSettingsStored")
+        }
+    }
+    
+    /// Version of settings, used to update settings and default values in future app versions.
+    private static let currentSettingsVersion = "1"
+    private static var settingsVersion:String {
+        get {
+            return defaults.string(forKey: "settingsVersion") ?? ""
+        }
+        set {
+            defaults.set(newValue, forKey: "settingsVersion")
+        }
+    }
+    
+    //MARK: - Functions
+    static func setDefaults() {
+        if(Settings.defaultSettingsStored == false) {
+            Settings.vibrationEnabled = true
+            Settings.autoScan = false
+            Settings.multipleScans = false
+            Settings.syncToiCloud = false
+            
+            Settings.defaultSettingsStored = true
+        }
+    }
+    
+    /// Used to reset settings based on user action (ex: reset button) to reset to default values of current settings version.
+    static func resetSettings() {
+        Settings.defaultSettingsStored = false
+        setDefaults()
+    }
+    
+    static func resetSettingsWhenVersionChanged() {
+        if(Settings.settingsVersion != Settings.currentSettingsVersion) {
+            resetSettings()
+            Settings.settingsVersion = Settings.currentSettingsVersion
+        }
+    }
+    
     //MARK: - Properties
     static var vibrationEnabled:Bool {
         get {

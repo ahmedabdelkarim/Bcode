@@ -244,7 +244,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         
         //for testing on simulator
         
-        showBarcodeDetails(text: "9 st. maadi cairo egypt")
+        showBarcodeDetails(text: "+1-541-754-3010")
         
         return
         
