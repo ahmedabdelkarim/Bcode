@@ -75,10 +75,12 @@ class BarcodeDetailsViewController: UIViewController {
     }
 
     //MARK: - Actions
+    @IBAction func deleteButtonClicked(_ sender: Any) {
+        
+    }
+    
     @IBAction func dismissButtonClicked(_ sender: Any) {
-        dismiss(animated: true, completion: {
-            self.delegate?.barcodeDetailsDismissed(viewController: self, barcodeInfo: self.barcodeInfo)
-        })
+        dismiss(animated: true)
     }
     
     @IBAction func favoriteButtonClick(_ sender: Any) {
@@ -103,7 +105,7 @@ class BarcodeDetailsViewController: UIViewController {
         present(ac, animated: true)
     }
     
-    @IBAction func openUrlButtonClicked(_ sender: Any) {
+    @IBAction func openLinkButtonClicked(_ sender: Any) {
         BarcodeActions.openLink(link: barcodeInfo.text)
     }
     

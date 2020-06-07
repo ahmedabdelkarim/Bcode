@@ -303,19 +303,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BO5-R4-ZKb">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCw-E4-l6H" userLabel="Delete Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="YOl-in-t4u"/>
+                                            <constraint firstAttribute="height" constant="40" id="cI5-AN-dWZ"/>
+                                        </constraints>
+                                        <color key="tintColor" name="ThemeColor1"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" image="trash" catalog="system"/>
+                                        <connections>
+                                            <action selector="deleteButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="mcN-4B-VgZ"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barcode Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBb-Ew-51g">
                                         <rect key="frame" x="142" y="9.5" width="130.5" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <color key="textColor" name="ThemeColor1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huJ-n1-X3c">
-                                        <rect key="frame" x="372" y="5" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huJ-n1-X3c" userLabel="Dismiss Button">
+                                        <rect key="frame" x="364" y="0.0" width="50" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="FrD-Rb-5NZ"/>
-                                            <constraint firstAttribute="width" constant="30" id="nYt-00-5za"/>
+                                            <constraint firstAttribute="height" constant="40" id="FrD-Rb-5NZ"/>
+                                            <constraint firstAttribute="width" constant="50" id="nYt-00-5za"/>
                                         </constraints>
                                         <color key="tintColor" name="ThemeColor1"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="chevron.down" catalog="system"/>
                                         <connections>
                                             <action selector="dismissButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="8aO-rW-d6j"/>
@@ -326,9 +340,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Bv7-yK-esQ"/>
                                     <constraint firstItem="huJ-n1-X3c" firstAttribute="centerY" secondItem="BO5-R4-ZKb" secondAttribute="centerY" id="Q3j-c6-9ya"/>
+                                    <constraint firstItem="QCw-E4-l6H" firstAttribute="leading" secondItem="BO5-R4-ZKb" secondAttribute="leading" id="RIA-K4-eGo"/>
                                     <constraint firstItem="sBb-Ew-51g" firstAttribute="centerY" secondItem="BO5-R4-ZKb" secondAttribute="centerY" id="RSA-Cx-GPw"/>
+                                    <constraint firstItem="QCw-E4-l6H" firstAttribute="centerY" secondItem="BO5-R4-ZKb" secondAttribute="centerY" id="UtZ-17-wcT"/>
                                     <constraint firstItem="sBb-Ew-51g" firstAttribute="centerX" secondItem="BO5-R4-ZKb" secondAttribute="centerX" id="apO-QD-3tJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="huJ-n1-X3c" secondAttribute="trailing" constant="12" id="mBY-5D-l0Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="huJ-n1-X3c" secondAttribute="trailing" id="mBY-5D-l0Z"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iA1-gd-QWx" customClass="DesignableView" customModule="Bcode" customModuleProvider="target">
@@ -440,11 +456,11 @@
                                         <color key="tintColor" name="ThemeColor2"/>
                                         <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="50" maxY="0.0"/>
-                                        <state key="normal" title="Open in Browser" image="safari.fill" catalog="system">
+                                        <state key="normal" title="Open Link" image="safari.fill" catalog="system">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="openUrlButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="Phq-62-Amp"/>
+                                            <action selector="openLinkButtonClicked:" destination="qaJ-Jq-MId" eventType="touchUpInside" id="Y0X-Ld-mxp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFe-Yv-roH" customClass="RoundedButton" customModule="Bcode" customModuleProvider="target">
@@ -529,6 +545,7 @@
         <image name="safari.fill" catalog="system" width="64" height="60"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="56" height="64"/>
         <image name="star" catalog="system" width="64" height="58"/>
+        <image name="trash" catalog="system" width="60" height="64"/>
         <image name="viewfinder" catalog="system" width="64" height="56"/>
         <namedColor name="ThemeColor1">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

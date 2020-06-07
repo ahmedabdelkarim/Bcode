@@ -173,9 +173,9 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
             self.dismiss(animated: true, completion: nil)
         }
         
-        //barcodeScanner.stopScanning()
+        barcodeScanner.stopScanning()
         barcodeScanner.supportedTypes = types
-        //barcodeScanner.startScanning()
+        barcodeScanner.startScanning()
         
         updateScanButtonState()
         updateChangeCameraButtonState()
@@ -244,11 +244,8 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         
         //for testing on simulator
         
-        showBarcodeDetails(text: "+1-541-754-3010")
-        
-        return
-        
-        
+        //showBarcodeDetails(text: "+1-541-754-3010")
+        //return
         
         if(barcodeScanner.isScanning) {
             barcodeScanner.stopScanning()

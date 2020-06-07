@@ -25,7 +25,7 @@ class RoundedButton: UIButton {
         }
     }
     
-    @IBInspectable var pressedColor: UIColor = UIColor.black
+    @IBInspectable var pressedColor: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
     
     @IBInspectable var disabledColor: UIColor = UIColor.lightGray
     
@@ -90,9 +90,16 @@ class RoundedButton: UIButton {
     
     func handleInteractions() {
         normalColor = self.backgroundColor
-        self.addTarget(self, action: #selector(setPressedStyle), for: .touchDown)
+        
+        self.addTarget(self, action: #selector(setTappedStyle), for: .touchUpInside)
+        
+        //self.addTarget(self, action: #selector(setPressedStyle), for: .touchDown)
+        
+        self.addTarget(self, action: #selector(setNormalStyle), for: .touchCancel)
+        
+        //self.addTarget(self, action: #selector(setNormalStyle), for: .touchUpOutside)
+        
         self.addTarget(self, action: #selector(setPressedStyle), for: .touchDragEnter)
-        self.addTarget(self, action: #selector(setNormalStyle), for: .touchUpInside)
         self.addTarget(self, action: #selector(setNormalStyle), for: .touchDragExit)
     }
     
@@ -100,7 +107,7 @@ class RoundedButton: UIButton {
         self.backgroundColor = pressedColor
         
         UIView.animate(withDuration: 0.1, animations: {
-            self.transform = CGAffineTransform(scaleX: 1.02, y: 1.02)
+            self.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
             //self.titleLabel?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         })
     }
@@ -111,6 +118,19 @@ class RoundedButton: UIButton {
         UIView.animate(withDuration: 0.1, animations: {
             self.transform = CGAffineTransform(scaleX: 1, y: 1)
             //self.titleLabel?.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }, completion: { (finished:Bool) in
+            self.updateCornerRadiusStyle()
+        })
+    }
+    
+    @objc func setTappedStyle() {
+        self.backgroundColor = pressedColor
+        
+        UIView.animate(withDuration: 0.1, animations: {
+            self.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+            //self.titleLabel?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        }, completion: { (finished: Bool) in
+            self.setNormalStyle()
         })
     }
 }

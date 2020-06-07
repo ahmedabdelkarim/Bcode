@@ -64,7 +64,9 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func facebookTapped(_ sender: Any) {
-        BarcodeActions.openLink(link: "https://www.facebook.com/ahmed.karim.tantawy")
+        BarcodeActions.openLink(link: "fb://profile/100003149322410", failed: {
+            BarcodeActions.openLink(link: "https://www.facebook.com/ahmed.karim.tantawy")
+        })
     }
     
     @IBAction func linkedinTapped(_ sender: Any) {
@@ -72,6 +74,6 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func websiteTapped(_ sender: Any) {
-        BarcodeActions.openLink(link: "https://ahmedabdelkarim.wordpress.com/")
+        BarcodeActions.openLink(link: "https://ahmedabdelkarim.wordpress.com")
     }
 }

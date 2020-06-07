@@ -19,12 +19,22 @@ class BarcodeActions {
         
     }
     
-    static func openLink(link:String) {
-        if let url = URL(string: link) {
-            UIApplication.shared.open(url)
+    static func openLink(link:String, success: (() -> Void)? = nil, failed: (() -> Void)? = nil) {
+        if var url = URL(string: link) {
+            var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            if (components?.scheme == nil) {
+                components?.scheme = "http"
+            }
+            
+            url = components?.url ?? url
+            
+            UIApplication.shared.open(url, options: [:], completionHandler: {(done) in
+                done ? success?() : failed?()
+            })
         }
         else {
-            //TODO: show cannot open url
+            //TODO: show cannot open url in calls
+            failed?()
         }
     }
     

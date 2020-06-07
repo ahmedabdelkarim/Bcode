@@ -48,12 +48,12 @@ class BarcodeScanner: UIView, AVCaptureMetadataOutputObjectsDelegate {
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //initControl()
+        initControl()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        //initControl()
+        initControl()
     }
     
     override public func layoutSubviews() {
