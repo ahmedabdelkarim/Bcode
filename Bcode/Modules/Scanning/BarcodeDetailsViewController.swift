@@ -93,7 +93,7 @@ class BarcodeDetailsViewController: UIViewController {
     }
     
     @IBAction func copyTextButtonClicked(_ sender: Any) {
-        BarcodeActions.copyToClipboard(text: barcodeInfo.text)
+        Actions.copyToClipboard(text: barcodeInfo.text)
 
         //TODO: show animated checkmark to confirm copied
         
@@ -106,19 +106,19 @@ class BarcodeDetailsViewController: UIViewController {
     }
     
     @IBAction func openLinkButtonClicked(_ sender: Any) {
-        BarcodeActions.openLink(link: barcodeInfo.text)
+        Actions.openLink(link: barcodeInfo.text)
     }
     
     @IBAction func phoneCallButtonClicked(_ sender: Any) {
-        BarcodeActions.callNumber(number: barcodeInfo.text)
+        Actions.callNumber(number: barcodeInfo.text)
     }
     
     @IBAction func openInMapsButtonClicked(_ sender: Any) {
-        BarcodeActions.openMapLocation(location: barcodeInfo.text)
+        Actions.openMapLocation(location: barcodeInfo.text)
     }
     
     @IBAction func openImageButtonClicked(_ sender: Any) {
-        BarcodeActions.openImage(image: barcodeInfo.text)
+        Actions.openImage(image: barcodeInfo.text)
     }
 }
 

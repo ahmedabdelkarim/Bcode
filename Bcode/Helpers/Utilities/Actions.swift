@@ -1,5 +1,5 @@
 //
-//  BarcodeActions.swift
+//  Actions.swift
 //  Bcode
 //
 //  Created by Ahmed Abdelkarim on 5/29/20.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BarcodeActions {
+class Actions {
     static func copyToClipboard(text:String) {
         UIPasteboard.general.string = "\(text)\nDetected by Bcode - app url"
         

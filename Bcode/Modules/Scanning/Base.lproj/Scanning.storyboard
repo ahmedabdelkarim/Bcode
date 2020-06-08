@@ -134,7 +134,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="scalTypeButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3bi-92-hsJ"/>
+                                            <action selector="scanTypeButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ofi-00-pix"/>
                                         </connections>
                                     </button>
                                 </subviews>

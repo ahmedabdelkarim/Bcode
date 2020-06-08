@@ -36,15 +36,15 @@ enum BarcodeContentType:String {
     public func performMainAction(text:String) {
         switch self {
         case .text:
-            BarcodeActions.copyToClipboard(text: text)
+            Actions.copyToClipboard(text: text)
         case .link:
-            BarcodeActions.openLink(link: text)
+            Actions.openLink(link: text)
         case .phoneNumber:
-            BarcodeActions.callNumber(number: text)
+            Actions.callNumber(number: text)
         case .mapLocation:
-            BarcodeActions.openMapLocation(location: text)
+            Actions.openMapLocation(location: text)
         case .image:
-            BarcodeActions.openImage(image: text)
+            Actions.openImage(image: text)
         }
     }
 }

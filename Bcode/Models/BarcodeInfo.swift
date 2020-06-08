@@ -29,4 +29,35 @@ class BarcodeInfo {
     public func performMainAction() {
         contentType.performMainAction(text: text)
     }
+    
+    
+    
+    //database functions here
+    
+    
+    static func getAllFromDatabase() {
+        
+    }
+    
+    static func deleteAllFromDatabase() {
+        
+    }
+    
+    func addToHistory() {
+        
+    }
+    
+    func favorite() {
+        
+    }
+    
+    func unfavorite() {
+        
+    }
+    
+    func deleteFromDatabase() {
+        
+    }
+    
+    
 }

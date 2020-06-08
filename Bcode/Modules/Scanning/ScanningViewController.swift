@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ScanningViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHandlerDelegate, VisionDetectorDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ScanningViewController: UIViewController, BarcodeScannerDelegate, ShortcutItemHandlerDelegate, VisionDetectorDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, BarcodeDetailsViewControllerDelegate {
     //MARK: - Outlets
     @IBOutlet weak var barcodeScanner: BarcodeScanner!
     
@@ -25,7 +25,8 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     @IBOutlet weak var changeCameraButton: RoundedButton!
     
     //MARK: - Variables
-    private var barcodeInfo:BarcodeInfo!
+    private var currentBarcodeInfo:BarcodeInfo!
+    private var previousBarcodeInfo:BarcodeInfo?
     private var visionDetector:VisionDetector!
     var imagePicker:UIImagePickerController!
     
@@ -40,8 +41,6 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         barcodeScanner.supportedTypes = [.qr]
         
         ShortcutItemHandler.delegate = self
-        
-        print("isScanning: \(barcodeScanner.isScanning)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,8 +48,15 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         
         barcodeScanner.vibrateWhenCodeDetected = Settings.vibrationEnabled
         scanButtonView.isHidden = Settings.autoScan
+        updateScanButtonState()
         updateChangeCameraButtonState()
         hideScanTypes()
+        
+        if(Settings.autoScan) {
+            if(barcodeScanner.isScanning == false) {
+                barcodeScanner.startScanning()
+            }
+        }
     }
     
     //MARK: - Functions
@@ -143,11 +149,30 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         }
     }
     
-    func showBarcodeDetails(text: String) {
+    func handleBarcode(text: String) {
         let contentType = getContentType(text: text)
-        barcodeInfo = BarcodeInfo(text: text, contentType: contentType, isFavorite: false)
+        currentBarcodeInfo = BarcodeInfo(text: text, contentType: contentType, isFavorite: false)
         
-        self.performSegue(withIdentifier: "showBarcodeDetails", sender: self)
+        //if multiple scans enabled, and detected a code different from previous one, add to history and continue scanning
+        if(Settings.autoScan && Settings.multipleScans) {
+            if(currentBarcodeInfo.text != previousBarcodeInfo?.text) { // new barcode detected
+                currentBarcodeInfo.addToHistory()
+                previousBarcodeInfo = currentBarcodeInfo //TODO: debug if previous is changed with current when detect new code!! (by reference)
+                barcodeScanner.startScanning()
+                
+                //TODO: show animmated confirmation "added to history"
+                
+            }
+            else {
+                barcodeScanner.startScanning()
+                
+                //TODO: show "already added"
+            
+            }
+        }
+        else {//if multiple scans disabled, show details of detected code
+            self.performSegue(withIdentifier: "showBarcodeDetails", sender: self)
+        }
     }
     
     func getContentType(text: String) -> BarcodeContentType {
@@ -207,7 +232,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         toggleCameraTorch()
     }
     
-    @IBAction func scalTypeButtonClick(_ sender: Any) {
+    @IBAction func scanTypeButtonClick(_ sender: Any) {
         if(scanTypesView.isUserInteractionEnabled == false) {
             showScanTypes()
         }
@@ -256,8 +281,6 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         
         updateScanButtonState()
         updateChangeCameraButtonState()
-        
-        print("isScanning: \(barcodeScanner.isScanning)")
     }
     
     @IBAction func changeCameraButtonClick(_ sender: Any) {
@@ -281,24 +304,33 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         present(imagePicker, animated: true, completion: nil)
     }
     
+    //MARK: - BarcodeDetailsViewControllerDelegate
+    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo) {
+        if(Settings.autoScan) {
+            if(barcodeScanner.isScanning == false) {
+                barcodeScanner.startScanning()
+            }
+        }
+    }
+    
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if(segue.identifier == "showBarcodeDetails") {
             let viewController = segue.destination as? BarcodeDetailsViewController
-            viewController?.barcodeInfo = barcodeInfo
+            viewController?.barcodeInfo = currentBarcodeInfo
+            viewController?.delegate = self
         }
     }
     
     //MARK: - BarcodeScannerDelegate
     func barcodeScannerDetectedCode(scanner: BarcodeScanner, code: String) {
         print("detected code: \(code)")
-        print("isScanning: \(barcodeScanner.isScanning)")
         
         updateScanButtonState()
         updateChangeCameraButtonState()
         
-        showBarcodeDetails(text: code)
+        handleBarcode(text: code)
     }
     
     func barcodeScannerFailedToDetectCode(scanner: BarcodeScanner) {
@@ -314,7 +346,6 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         updateScanButtonState()
         updateChangeCameraButtonState()
     }
-    
     
     //MARK: - UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -338,7 +369,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         print("Detected code: \(code)")
         
         DispatchQueue.main.async {
-            self.showBarcodeDetails(text: code)
+            self.handleBarcode(text: code)
             self.scanImageButton.isUserInteractionEnabled = true
         }
     }
