@@ -44,7 +44,7 @@ class BarcodeInfo {
     }
     
     func addToHistory() {
-        
+        print("added to history")
     }
     
     func favorite() {

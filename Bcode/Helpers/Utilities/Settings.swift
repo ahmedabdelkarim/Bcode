@@ -38,7 +38,7 @@ class Settings {
         if(Settings.defaultSettingsStored == false) {
             Settings.vibrationEnabled = true
             Settings.autoScan = false
-            Settings.multipleScans = false
+            Settings.continuousScan = false
             Settings.syncToiCloud = false
             
             Settings.defaultSettingsStored = true
@@ -77,12 +77,12 @@ class Settings {
         }
     }
     
-    static var multipleScans:Bool {
+    static var continuousScan:Bool {
         get {
-            return defaults.bool(forKey: "multipleScans")
+            return defaults.bool(forKey: "continuousScan")
         }
         set {
-            defaults.set(newValue, forKey: "multipleScans")
+            defaults.set(newValue, forKey: "continuousScan")
         }
     }
     

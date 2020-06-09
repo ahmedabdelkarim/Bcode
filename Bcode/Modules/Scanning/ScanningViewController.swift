@@ -13,34 +13,40 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     //MARK: - Outlets
     @IBOutlet weak var barcodeScanner: BarcodeScanner!
     
-    @IBOutlet weak var flashButton: RoundedButton!
+    @IBOutlet weak var torchButton: RoundedButton!
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var scanTypeButton: RoundedButton!
     @IBOutlet weak var scanTypesView: UIView!
     
-    @IBOutlet weak var scanImageButton: RoundedButton!
+    @IBOutlet weak var scanPhotoButton: RoundedButton!
     @IBOutlet weak var scanButtonView: UIView!
     @IBOutlet weak var scanButton: RoundedButton!
-    @IBOutlet weak var changeCameraButton: RoundedButton!
+    @IBOutlet weak var switchCameraButton: RoundedButton!
     
     //MARK: - Variables
     private var currentBarcodeInfo:BarcodeInfo!
     private var previousBarcodeInfo:BarcodeInfo?
     private var visionDetector:VisionDetector!
-    var imagePicker:UIImagePickerController!
+    private var imagePicker:UIImagePickerController!
+    private var isScanning = false
+    private var torchIsOn = false
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateScanButtonState()
-        updateChangeCameraButtonState()
+        updateButtonsState()
         
         barcodeScanner.delegate = self
         barcodeScanner.supportedTypes = [.qr]
         
         ShortcutItemHandler.delegate = self
+        
+        let notificationCenter = NotificationCenter.default
+        
+        notificationCenter.addObserver(self, selector: #selector(appDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,13 +54,32 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         
         barcodeScanner.vibrateWhenCodeDetected = Settings.vibrationEnabled
         scanButtonView.isHidden = Settings.autoScan
-        updateScanButtonState()
-        updateChangeCameraButtonState()
+        updateButtonsState()
         hideScanTypes()
         
         if(Settings.autoScan) {
-            if(barcodeScanner.isScanning == false) {
-                barcodeScanner.startScanning()
+            if(isScanning == false) {
+                startScanning()
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        stopScanning()
+        closeTorch()
+    }
+    
+    @objc func appDidEnterBackground() {
+        stopScanning()
+        closeTorch()
+    }
+    
+    @objc func appWillEnterForeground() {
+        if(Settings.autoScan) {
+            if(isScanning == false) {
+                startScanning()
             }
         }
     }
@@ -70,21 +95,43 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     func toggleCameraTorch() {
+        if torchIsOn == false {
+            openTorch()
+        } else {
+            closeTorch()
+        }
+    }
+    
+    func openTorch() {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
         
         if device.hasTorch {
             do {
                 try device.lockForConfiguration()
-                
-                if device.torchMode == .off {
-                    device.torchMode = .on
-                    flashButton.setImage(UIImage(systemName: "bolt.fill"), for: .normal)
-                } else {
-                    device.torchMode = .off
-                    flashButton.setImage(UIImage(systemName: "bolt.slash.fill"), for: .normal)
-                }
-                
+                device.torchMode = .on
                 device.unlockForConfiguration()
+                
+                torchIsOn = true
+                torchButton.setImage(UIImage(systemName: "bolt.fill"), for: .normal)
+            } catch {
+                print("Torch could not be used")
+            }
+        } else {
+            print("Torch is not available")
+        }
+    }
+    
+    func closeTorch() {
+        guard let device = AVCaptureDevice.default(for: .video) else { return }
+        
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+                device.torchMode = .off
+                device.unlockForConfiguration()
+                
+                torchIsOn = false
+                torchButton.setImage(UIImage(systemName: "bolt.slash.fill"), for: .normal)
             } catch {
                 print("Torch could not be used")
             }
@@ -103,29 +150,63 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     func showScanTypes() {
-        flashButton.isEnabled = false
+        torchButton.isEnabled = false
         scanTypesView.isUserInteractionEnabled = true
         
         UIView.animate(withDuration: 0.4, animations: {
-            self.flashButton.alpha = 0
+            self.torchButton.alpha = 0
             self.statusLabel.alpha = 0
             self.scanTypesView.alpha = 1
         })
     }
     
     func hideScanTypes() {
-        flashButton.isEnabled = true
+        torchButton.isEnabled = isScanning && (barcodeScanner.camera == .backCamera)
         scanTypesView.isUserInteractionEnabled = false
         
         UIView.animate(withDuration: 0.4, animations: {
-            self.flashButton.alpha = 1
+            self.torchButton.alpha = 1
             self.statusLabel.alpha = 1
             self.scanTypesView.alpha = 0
         })
     }
     
+    func startScanning() {
+        barcodeScanner.startScanning()
+        isScanning = barcodeScanner.isScanning
+        
+        updateButtonsState()
+        
+        torchButton.isEnabled = isScanning && (barcodeScanner.camera == .backCamera)
+    }
+    
+    func stopScanning() {
+        barcodeScanner.stopScanning()
+        isScanning = barcodeScanner.isScanning
+        
+        updateButtonsState()
+        
+        closeTorch()
+        torchButton.isEnabled = false
+    }
+    
+    func updateButtonsState() {
+        updateScanPhotoButtonState()
+        updateScanButtonState()
+        updateSwitchCameraButtonState()
+    }
+    
+    func updateScanPhotoButtonState() {
+        if(isScanning) {
+            scanPhotoButton.alpha = 0.75
+        }
+        else {
+            scanPhotoButton.alpha = 1
+        }
+    }
+    
     func updateScanButtonState() {
-        if(barcodeScanner.isScanning) {
+        if(isScanning) {
             scanButton.setTitle("Stop", for: .normal)
             scanButtonView.alpha = 0.75
         }
@@ -135,16 +216,19 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         }
     }
     
-    func updateChangeCameraButtonState() {
+    func updateSwitchCameraButtonState() {
         if(Settings.autoScan){
-            changeCameraButton.isEnabled = true
+            switchCameraButton.isEnabled = true
+            switchCameraButton.alpha = 0.75
         }
         else {
-            if(barcodeScanner.isScanning) {
-                changeCameraButton.isEnabled = true
+            if(isScanning) {
+                switchCameraButton.isEnabled = true
+                switchCameraButton.alpha = 0.75
             }
             else {
-                changeCameraButton.isEnabled = false
+                switchCameraButton.isEnabled = false
+                switchCameraButton.alpha = 1
             }
         }
     }
@@ -153,24 +237,24 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         let contentType = getContentType(text: text)
         currentBarcodeInfo = BarcodeInfo(text: text, contentType: contentType, isFavorite: false)
         
-        //if multiple scans enabled, and detected a code different from previous one, add to history and continue scanning
-        if(Settings.autoScan && Settings.multipleScans) {
+        //if continuous scan enabled, and detected a code different from previous one, add to history and continue scanning
+        if(Settings.autoScan && Settings.continuousScan) {
             if(currentBarcodeInfo.text != previousBarcodeInfo?.text) { // new barcode detected
                 currentBarcodeInfo.addToHistory()
                 previousBarcodeInfo = currentBarcodeInfo //TODO: debug if previous is changed with current when detect new code!! (by reference)
-                barcodeScanner.startScanning()
+                startScanning()
                 
                 //TODO: show animmated confirmation "added to history"
                 
             }
             else {
-                barcodeScanner.startScanning()
+                startScanning()
                 
                 //TODO: show "already added"
-            
+                
             }
         }
-        else {//if multiple scans disabled, show details of detected code
+        else {//if continuous scan disabled, show details of detected code
             self.performSegue(withIdentifier: "showBarcodeDetails", sender: self)
         }
     }
@@ -198,12 +282,9 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
             self.dismiss(animated: true, completion: nil)
         }
         
-        barcodeScanner.stopScanning()
+        stopScanning()
         barcodeScanner.supportedTypes = types
-        barcodeScanner.startScanning()
-        
-        updateScanButtonState()
-        updateChangeCameraButtonState()
+        startScanning()
     }
     
     func detectBarcodeInImage(image: UIImage) {
@@ -228,7 +309,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     //MARK: - Actions
-    @IBAction func cameraFlashButtonClick(_ sender: Any) {
+    @IBAction func torchButtonClick(_ sender: Any) {
         toggleCameraTorch()
     }
     
@@ -246,6 +327,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         updateStausLabel(text: "Scanning ALL")
         
         hideScanTypes()
+        closeTorch()
         scanBarcodeWithTypes([.qr, .ean13])
     }
     
@@ -254,6 +336,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         updateStausLabel(text: "Scanning QR")
         
         hideScanTypes()
+        closeTorch()
         scanBarcodeWithTypes([.qr])
     }
     
@@ -262,6 +345,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         updateStausLabel(text: "Scanning EAN")
         
         hideScanTypes()
+        closeTorch()
         scanBarcodeWithTypes([.ean13])
     }
     
@@ -272,30 +356,30 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         //showBarcodeDetails(text: "+1-541-754-3010")
         //return
         
-        if(barcodeScanner.isScanning) {
-            barcodeScanner.stopScanning()
+        if(isScanning) {
+            stopScanning()
         }
         else {
-            barcodeScanner.startScanning()
+            startScanning()
         }
-        
-        updateScanButtonState()
-        updateChangeCameraButtonState()
     }
     
-    @IBAction func changeCameraButtonClick(_ sender: Any) {
+    @IBAction func switchCameraButtonClick(_ sender: Any) {
         Behaviors.vibrate()
         
         if(barcodeScanner.camera == .backCamera) {
+            closeTorch()
+            torchButton.isEnabled = false
             barcodeScanner.camera = .frontCamera
         }
         else {
             barcodeScanner.camera = .backCamera
+            torchButton.isEnabled = true
         }
     }
     
-    @IBAction func scanImageButtonClick(_ sender: Any) {
-        scanImageButton.isUserInteractionEnabled = false
+    @IBAction func scanPhotoButtonClick(_ sender: Any) {
+        scanPhotoButton.isUserInteractionEnabled = false
         
         if(imagePicker == nil) {
             initImagePicker()
@@ -307,9 +391,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     //MARK: - BarcodeDetailsViewControllerDelegate
     func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo) {
         if(Settings.autoScan) {
-            if(barcodeScanner.isScanning == false) {
-                barcodeScanner.startScanning()
-            }
+            startScanning()
         }
     }
     
@@ -327,8 +409,8 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     func barcodeScannerDetectedCode(scanner: BarcodeScanner, code: String) {
         print("detected code: \(code)")
         
-        updateScanButtonState()
-        updateChangeCameraButtonState()
+        stopScanning()
+        updateButtonsState()
         
         handleBarcode(text: code)
     }
@@ -336,15 +418,14 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     func barcodeScannerFailedToDetectCode(scanner: BarcodeScanner) {
         print("loaded but failed to detect code")
         
-        updateScanButtonState()
-        updateChangeCameraButtonState()
+        stopScanning()
+        updateButtonsState()
     }
     
     func barcodeScannerFailedToLoad(scanner: BarcodeScanner) {
         print("failed to load")
         
-        updateScanButtonState()
-        updateChangeCameraButtonState()
+        updateButtonsState()
     }
     
     //MARK: - UIImagePickerControllerDelegate
@@ -361,27 +442,29 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
-        scanImageButton.isUserInteractionEnabled = true
+        scanPhotoButton.isUserInteractionEnabled = true
     }
     
     //MARK: - VisionDetectorDelegate
     func visionDetectorDetectedCode(detector: VisionDetector, code: String) {
-        print("Detected code: \(code)")
+        print("Detected code in photo: \(code)")
+        
+        Behaviors.vibrate()
         
         DispatchQueue.main.async {
             self.handleBarcode(text: code)
-            self.scanImageButton.isUserInteractionEnabled = true
+            self.scanPhotoButton.isUserInteractionEnabled = true
         }
     }
     
     func visionDetectorFailedToDetectCode(detector: VisionDetector) {
-        print("Failed to detect code in image")
+        print("Failed to detect code in photo")
         
         DispatchQueue.main.async {
             
             //TODO: show error popup
             
-            self.scanImageButton.isUserInteractionEnabled = true
+            self.scanPhotoButton.isUserInteractionEnabled = true
         }
     }
     
@@ -394,7 +477,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         scanBarcodeWithTypes([.ean13])
     }
     
-    func scanImage() {
+    func scanPhoto() {
         if(self.presentedViewController as? BarcodeDetailsViewController != nil) {
             self.dismiss(animated: true, completion: nil)
         }

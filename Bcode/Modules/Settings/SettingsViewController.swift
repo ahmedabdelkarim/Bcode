@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var vibrationEnabledSwitch: UISwitch!
     @IBOutlet weak var autoScanSwitch: UISwitch!
-    @IBOutlet weak var multipleScansSwitch: UISwitch!
+    @IBOutlet weak var continuousScanSwitch: UISwitch!
     @IBOutlet weak var syncToiCloudSwitch: UISwitch!
     
     //MARK: - Lifecycle
@@ -22,14 +22,14 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         loadSettings()
-        multipleScansSwitch.isEnabled = autoScanSwitch.isOn
+        continuousScanSwitch.isEnabled = autoScanSwitch.isOn
     }
     
     //MARK: - Functions
     func loadSettings() {
         vibrationEnabledSwitch.isOn = Settings.vibrationEnabled
         autoScanSwitch.isOn = Settings.autoScan
-        multipleScansSwitch.isOn = Settings.multipleScans
+        continuousScanSwitch.isOn = Settings.continuousScan
         syncToiCloudSwitch.isOn = Settings.syncToiCloud
     }
     
@@ -45,15 +45,15 @@ class SettingsViewController: UIViewController {
             break
         case autoScanSwitch:
             Settings.autoScan = sender.isOn
-            multipleScansSwitch.isEnabled = sender.isOn
+            continuousScanSwitch.isEnabled = sender.isOn
             
             if(Settings.autoScan == false) {
-                Settings.multipleScans = false
-                multipleScansSwitch.isOn = false
+                Settings.continuousScan = false
+                continuousScanSwitch.isOn = false
             }
             break
-        case multipleScansSwitch:
-            Settings.multipleScans = sender.isOn
+        case continuousScanSwitch:
+            Settings.continuousScan = sender.isOn
             break
         case syncToiCloudSwitch:
             Settings.syncToiCloud = sender.isOn

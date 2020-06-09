@@ -24,7 +24,7 @@ class ShortcutItemHandler {
             delegate?.scanEAN13()
             break
         case scanImage:
-            delegate?.scanImage()
+            delegate?.scanPhoto()
             break
         default:
             break
@@ -35,5 +35,5 @@ class ShortcutItemHandler {
 protocol ShortcutItemHandlerDelegate {
     func scanQR()
     func scanEAN13()
-    func scanImage()
+    func scanPhoto()
 }

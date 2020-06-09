@@ -114,7 +114,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OK6-So-5yn">
                                                                         <rect key="frame" x="0.0" y="55" width="350" height="31"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiple Scans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xoe-9r-XLr">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continuous Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xoe-9r-XLr">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="301" height="31"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
@@ -339,7 +339,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="autoScanSwitch" destination="k3V-u9-Jvj" id="C27-pO-JaP"/>
-                        <outlet property="multipleScansSwitch" destination="8Un-gP-f1e" id="23h-uC-s1H"/>
+                        <outlet property="continuousScanSwitch" destination="8Un-gP-f1e" id="23h-uC-s1H"/>
                         <outlet property="scrollView" destination="fc0-tV-fQ8" id="NCa-H5-k3M"/>
                         <outlet property="syncToiCloudSwitch" destination="vOt-Mh-Lcc" id="wiz-qx-rTp"/>
                         <outlet property="vibrationEnabledSwitch" destination="a5A-EM-85u" id="4DK-9b-AtS"/>
