@@ -76,7 +76,8 @@ class BarcodeDetailsViewController: UIViewController {
 
     //MARK: - Actions
     @IBAction func deleteButtonClicked(_ sender: Any) {
-        
+        barcodeInfo.delete()
+        dismiss(animated: true)
     }
     
     @IBAction func dismissButtonClicked(_ sender: Any) {
@@ -84,10 +85,12 @@ class BarcodeDetailsViewController: UIViewController {
     }
     
     @IBAction func favoriteButtonClick(_ sender: Any) {
-        barcodeInfo.isFavorite = !barcodeInfo.isFavorite
-        
-        //TODO: save object in device data
-        
+        if(barcodeInfo.isFavorite) {
+            barcodeInfo.unfavorite()
+        }
+        else {
+            barcodeInfo.favorite()
+        }
         
         setFavoriteButtonImage()
     }

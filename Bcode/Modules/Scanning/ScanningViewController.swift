@@ -62,6 +62,9 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
                 startScanning()
             }
         }
+        
+        //if continuous scan turned on, then of, then on again.. it must find previousBarcodeInfo nil
+        previousBarcodeInfo = nil
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -254,7 +257,8 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
                 
             }
         }
-        else {//if continuous scan disabled, show details of detected code
+        else {//if continuous scan disabled
+            currentBarcodeInfo.addToHistory()
             self.performSegue(withIdentifier: "showBarcodeDetails", sender: self)
         }
     }

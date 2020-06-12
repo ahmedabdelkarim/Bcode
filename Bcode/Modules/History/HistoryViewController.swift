@@ -24,43 +24,19 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let nib = UINib(nibName: "HistoryCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "HistoryCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         loadHistoryBarcodes()
     }
     
     //MARK: - Functions
     func loadHistoryBarcodes() {
-        allBarcodeInfoArray = [BarcodeInfo]()
-        
-        let types:[BarcodeContentType] = [.text, .link, .phoneNumber, .mapLocation, .image]
-        
-        var favorite = false
-        for i in 1..<21 {
-            var text = ""
-            switch types[(i-1)%5] {
-            case .text:
-                text = "Ahmed Abdelkarim"
-                break
-            case .link:
-                text = "http://www.google.com"
-                break
-            case .phoneNumber:
-                text = "01221290994"
-                break
-            case .mapLocation:
-                text = "30.5,31.5"
-                break
-            case .image:
-                text = "base64-image-string"
-                break
-            }
-            
-            let b = BarcodeInfo(text: text, contentType: types[(i-1)%5], isFavorite: favorite)
-            favorite = !favorite
-            allBarcodeInfoArray.append(b)
-        }
-        
+        allBarcodeInfoArray = BarcodeInfo.getAllHistory()
         barcodeInfoArray = allBarcodeInfoArray
+        
         tableView.reloadData()
     }
     
