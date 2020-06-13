@@ -393,7 +393,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     }
     
     //MARK: - BarcodeDetailsViewControllerDelegate
-    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo) {
+    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo, isDeleted: Bool, isFavoriteChanged: Bool) {
         if(Settings.autoScan) {
             startScanning()
         }

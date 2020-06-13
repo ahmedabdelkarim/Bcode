@@ -11,6 +11,7 @@ import UIKit
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BarcodeDetailsViewControllerDelegate {
     //MARK: - Outlets
     @IBOutlet weak var tableView:UITableView!
+    @IBOutlet weak var categorySegmentedControl: DesignableSegmentedControl!
     
     //MARK: - Variables
     private var barcodeInfoArray:[BarcodeInfo]!
@@ -35,7 +36,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: - Functions
     func loadHistoryBarcodes() {
         allBarcodeInfoArray = BarcodeInfo.getAllHistory()
-        barcodeInfoArray = allBarcodeInfoArray
+        
+        resetCategories()
+        updateCategory(index: categorySegmentedControl.selectedSegmentIndex)
         
         tableView.reloadData()
     }
@@ -48,9 +51,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.setContentOffset(CGPoint.zero, animated: true)
     }
     
-    //MARK: - Actions
-    @IBAction func selectedCategoryChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
+    func resetCategories() {
+        barcodeInfoArray = nil
+        linksBarcodeInfoArray = nil
+        textBarcodeInfoArray = nil
+    }
+    
+    func updateCategory(index:Int) {
+        switch index {
         case 0:
             barcodeInfoArray = allBarcodeInfoArray
             break
@@ -71,6 +79,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         default:
             break
         }
+    }
+    
+    //MARK: - Actions
+    @IBAction func selectedCategoryChanged(_ sender: UISegmentedControl) {
+        updateCategory(index: categorySegmentedControl.selectedSegmentIndex)
         
         tableView.reloadData()
     }
@@ -83,7 +96,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryCell
         cell.setup(barcodeInfo: barcodeInfoArray[indexPath.row])
-        
         return cell
     }
     
@@ -107,8 +119,26 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     //MARK: - BarcodeDetailsViewControllerDelegate
-    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo) {
-        if(tableView.indexPathForSelectedRow != nil) {
+    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo, isDeleted: Bool, isFavoriteChanged: Bool) {
+        if(tableView.indexPathForSelectedRow == nil) {
+            return
+        }
+        
+        if(isDeleted) {
+            allBarcodeInfoArray = BarcodeInfo.getAllHistory()
+            
+            resetCategories()
+            updateCategory(index: categorySegmentedControl.selectedSegmentIndex)
+            
+            tableView.deleteRows(at: [tableView.indexPathForSelectedRow!], with: .fade)
+        }
+        else if(isFavoriteChanged) {
+            let cell = tableView.cellForRow(at: tableView.indexPathForSelectedRow!) as! HistoryCell
+            cell.setup(barcodeInfo: barcodeInfo)
+            
+            tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
+        }
+        else {
             tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
         }
     }

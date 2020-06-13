@@ -29,7 +29,7 @@
                                     <action selector="selectedCategoryChanged:" destination="gaW-qr-pGd" eventType="valueChanged" id="Kjs-J3-WJ8"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h0J-bi-JTW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h0J-bi-JTW">
                                 <rect key="frame" x="0.0" y="99" width="414" height="714"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -53,6 +53,7 @@
                     <tabBarItem key="tabBarItem" systemItem="history" id="JLB-kh-Q6N"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="categorySegmentedControl" destination="cr1-He-t39" id="Fxt-w8-2Ce"/>
                         <outlet property="tableView" destination="h0J-bi-JTW" id="0FQ-0j-ZOc"/>
                         <segue destination="HPz-xc-jhC" kind="show" identifier="showBarcodeDetails" id="tUW-Up-0yW"/>
                     </connections>

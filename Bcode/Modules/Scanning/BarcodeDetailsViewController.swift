@@ -21,6 +21,8 @@ class BarcodeDetailsViewController: UIViewController {
     //MARK: - Variables
     var barcodeInfo:BarcodeInfo!
     var delegate:BarcodeDetailsViewControllerDelegate?
+    private var isDeleted:Bool = false
+    private var isFavoriteChanged:Bool = false
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -34,7 +36,7 @@ class BarcodeDetailsViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        self.delegate?.barcodeDetailsDismissed(viewController: self, barcodeInfo: self.barcodeInfo)
+        self.delegate?.barcodeDetailsDismissed(viewController: self, barcodeInfo: self.barcodeInfo, isDeleted: self.isDeleted, isFavoriteChanged: self.isFavoriteChanged)
     }
     
     //MARK: - Functions
@@ -77,6 +79,7 @@ class BarcodeDetailsViewController: UIViewController {
     //MARK: - Actions
     @IBAction func deleteButtonClicked(_ sender: Any) {
         barcodeInfo.delete()
+        isDeleted = true
         dismiss(animated: true)
     }
     
@@ -93,6 +96,7 @@ class BarcodeDetailsViewController: UIViewController {
         }
         
         setFavoriteButtonImage()
+        isFavoriteChanged = true
     }
     
     @IBAction func copyTextButtonClicked(_ sender: Any) {
@@ -142,5 +146,5 @@ extension BarcodeDetailsViewController: UIActivityItemSource {
 }
 
 protocol BarcodeDetailsViewControllerDelegate {
-    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo)
+    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo, isDeleted: Bool, isFavoriteChanged: Bool)
 }

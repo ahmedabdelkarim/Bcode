@@ -49,6 +49,7 @@ class BarcodeInfo {
     static func getAllHistory() -> [BarcodeInfo] {
         if(BarcodeInfo.historyBarcodes == nil) {
             BarcodeInfo.historyBarcodes = BarcodeInfo.getAllHistoryFromDatabase()
+            BarcodeInfo.historyBarcodes?.reverse()
         }
         
         return BarcodeInfo.historyBarcodes!
@@ -57,6 +58,8 @@ class BarcodeInfo {
     static func getFavorites() -> [BarcodeInfo] {
         if(BarcodeInfo.favoriteBarcodes == nil) {
             BarcodeInfo.favoriteBarcodes = BarcodeInfo.getFavoritesFromDatabase()
+            //order by date descending (items added in database ascending)
+            BarcodeInfo.favoriteBarcodes?.reverse()
         }
         
         return BarcodeInfo.favoriteBarcodes!
@@ -68,7 +71,7 @@ class BarcodeInfo {
         self.addToHistoryInDatabase()
         
         if(BarcodeInfo.historyBarcodes != nil) {
-            BarcodeInfo.historyBarcodes!.append(self)
+            BarcodeInfo.historyBarcodes!.insert(self, at: 0)
         }
     }
     
@@ -77,6 +80,10 @@ class BarcodeInfo {
         
         if(BarcodeInfo.favoriteBarcodes != nil) {
             BarcodeInfo.favoriteBarcodes!.append(self)
+            //order by date descending
+            BarcodeInfo.favoriteBarcodes = BarcodeInfo.favoriteBarcodes!.sorted(by: {
+                $0.date.compare($1.date) == .orderedDescending
+            })
         }
         
         self.isFavorite = true
@@ -112,7 +119,6 @@ class BarcodeInfo {
     }
     
     //MARK: - Database
-    //database functions here
     
     
     static var allBarcodeInfoArray:[BarcodeInfo]? = nil
@@ -150,12 +156,14 @@ class BarcodeInfo {
             }
             
             let b = BarcodeInfo(text: text, contentType: types[(i-1)%5], isFavorite: favorite)
+            b.date = Date()
             favorite = !favorite
             allBarcodeInfoArray!.append(b)
         }
         
         return allBarcodeInfoArray!
     }
+    
     
     //TODO: get from database
     private static func getFavoritesFromDatabase() -> [BarcodeInfo] {
@@ -167,19 +175,35 @@ class BarcodeInfo {
     }
     
     private func addToHistoryInDatabase() {
+        if(BarcodeInfo.allBarcodeInfoArray == nil) {
+            BarcodeInfo.allBarcodeInfoArray = BarcodeInfo.getAllHistoryFromDatabase()
+        }
         
+        BarcodeInfo.allBarcodeInfoArray!.append(self)
     }
     
     private func favoriteInDatabase() {
+        if(BarcodeInfo.allBarcodeInfoArray == nil) {
+            BarcodeInfo.allBarcodeInfoArray = BarcodeInfo.getAllHistoryFromDatabase()
+        }
         
+        BarcodeInfo.allBarcodeInfoArray!.first(where: { $0.id == self.id })?.isFavorite = true
     }
     
     private func unfavoriteInDatabase() {
+        if(BarcodeInfo.allBarcodeInfoArray == nil) {
+            BarcodeInfo.allBarcodeInfoArray = BarcodeInfo.getAllHistoryFromDatabase()
+        }
         
+        BarcodeInfo.allBarcodeInfoArray!.first(where: { $0.id == self.id })?.isFavorite = false
     }
     
     private func deleteFromDatabase() {
+        if(BarcodeInfo.allBarcodeInfoArray == nil) {
+            BarcodeInfo.allBarcodeInfoArray = BarcodeInfo.getAllHistoryFromDatabase()
+        }
         
+        BarcodeInfo.allBarcodeInfoArray!.removeAll(where: { $0.id == self.id })
     }
     
     private static func deleteAllHistoryFromDatabase() {

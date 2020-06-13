@@ -11,6 +11,7 @@ import UIKit
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BarcodeDetailsViewControllerDelegate {
     //MARK: - Outlets
     @IBOutlet weak var tableView:UITableView!
+    @IBOutlet weak var categorySegmentedControl: DesignableSegmentedControl!
     
     //MARK: - Variables
     private var barcodeInfoArray:[BarcodeInfo]!
@@ -35,7 +36,9 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     //MARK: - Functions
     func loadFavoriteBarcodes() {
         allBarcodeInfoArray = BarcodeInfo.getFavorites()
-        barcodeInfoArray = allBarcodeInfoArray
+        
+        resetCategories()
+        updateCategory(index: categorySegmentedControl.selectedSegmentIndex)
         
         tableView.reloadData()
     }
@@ -48,9 +51,14 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.setContentOffset(CGPoint.zero, animated: true)
     }
     
-    //MARK: - Actions
-    @IBAction func selectedCategoryChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
+    func resetCategories() {
+        barcodeInfoArray = nil
+        linksBarcodeInfoArray = nil
+        textBarcodeInfoArray = nil
+    }
+    
+    func updateCategory(index:Int) {
+        switch index {
         case 0:
             barcodeInfoArray = allBarcodeInfoArray
             break
@@ -71,6 +79,11 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         default:
             break
         }
+    }
+    
+    //MARK: - Actions
+    @IBAction func selectedCategoryChanged(_ sender: UISegmentedControl) {
+        updateCategory(index: categorySegmentedControl.selectedSegmentIndex)
         
         tableView.reloadData()
     }
@@ -106,8 +119,25 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     //MARK: - BarcodeDetailsViewControllerDelegate
-    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo) {
-        if(tableView.indexPathForSelectedRow != nil) {
+    func barcodeDetailsDismissed(viewController: BarcodeDetailsViewController, barcodeInfo: BarcodeInfo, isDeleted: Bool, isFavoriteChanged: Bool) {
+        if(tableView.indexPathForSelectedRow == nil) {
+            return
+        }
+        
+        if(isDeleted || (isFavoriteChanged && barcodeInfo.isFavorite == false)) {
+            allBarcodeInfoArray = BarcodeInfo.getFavorites()
+            
+            resetCategories()
+            updateCategory(index: categorySegmentedControl.selectedSegmentIndex)
+            
+            if(isDeleted) {
+                tableView.deleteRows(at: [tableView.indexPathForSelectedRow!], with: .fade)
+            }
+            else {
+                tableView.deleteRows(at: [tableView.indexPathForSelectedRow!], with: .right)
+            }
+        }
+        else {
             tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
         }
     }
