@@ -23,6 +23,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     @IBOutlet weak var scanButtonView: UIView!
     @IBOutlet weak var scanButton: RoundedButton!
     @IBOutlet weak var switchCameraButton: RoundedButton!
+    @IBOutlet weak var toastView: UIView!
     
     //MARK: - Variables
     private var currentBarcodeInfo:BarcodeInfo!
@@ -270,7 +271,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         else if(text.isPhoneNumber()) {
             return .phoneNumber
         }
-        else if(text.isAddress()) {
+        else if(text.isGeolocation()) {
             return .mapLocation
         }
         else if(text.isBase64Image()) {
@@ -358,7 +359,41 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
         //for testing on simulator
         
         //showBarcodeDetails(text: "+1-541-754-3010")
-        //return
+        
+        //let text = "http://www.google.com/maps/@42.585444,13.007813,6z"
+        //let text = "http://maps.apple.com/?ll=50.894967,4.341626"
+        //let text = "tel:01221290994"
+        
+        //Actions.openLink(link: text, success: nil, failed: nil)
+        
+        
+        //1) simple toast
+        SimpleToastView.show(title: "Simple Toast Simple")
+        //SimpleToastView.show(title: "Simple Toast", background: UIColor.yellow, foreground: UIColor.red)
+        
+        //2) simple toast with customization
+//        let toast = SimpleToastView(title: "Simple Toast")
+//        toast.backgroundView.layer.borderWidth = 2
+//        toast.backgroundView.layer.borderColor = UIColor.green.cgColor
+//        toast.titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+//        //toast.insets = UIEdgeInsets(top: 0.1, left: 0.1, bottom: 0.1, right: 0.1)
+//        toast.edge = .top
+//        toast.appearanceStyle = .enter
+//        toast.show()
+        
+        //3) custom toast
+//        let customView = UIView()
+//        customView.backgroundColor = UIColor.blue
+//        customView.layer.cornerRadius = 8
+//        let toast = CustomToastView(view: customView, width: 250, height: 60)
+//        toast.appearanceStyle = .enterWithFade
+//        toast.showInterval = 1
+//        toast.hideInterval = 1
+//        toast.insets = UIEdgeInsets(top: 0.1, left: 0.1, bottom: 0.1, right: 0.1)
+//        toast.edge = .top
+//        toast.show()
+        
+        return
         
         if(isScanning) {
             stopScanning()

@@ -9,29 +9,46 @@
 import Foundation
 
 extension String {
-    func isLink() -> Bool {
-        return isOfType(type: .link)
+    func isEmail() -> Bool {
+        return false
     }
     
+    //TODO: need to know if text has scheme, or not
     func isPhoneNumber() -> Bool {
         return isOfType(type: .phoneNumber)
+    }
+    
+    func isSMS() -> Bool {
+        return false
+    }
+    
+    func isFaceTimeVideo() -> Bool {
+        return false
+    }
+    
+    func isFaceTimeAudio() -> Bool {
+        return false
+    }
+    
+    func isGeolocation() -> Bool {
+        return false
+    }
+    
+    func isLink() -> Bool {
+        return isOfType(type: .link)
     }
     
     func isDate() -> Bool {
         return isOfType(type: .date)
     }
     
-    //not working well
-    func isAddress() -> Bool {
-        return isOfType(type: .address)
-    }
-    
-    //implement
+    //TODO: remove
     func isBase64Image() -> Bool {
         return false
     }
     
-    func isOfType(type: NSTextCheckingResult.CheckingType) -> Bool {
+    
+    private func isOfType(type: NSTextCheckingResult.CheckingType) -> Bool {
         do {
             let detector = try NSDataDetector(types: type.rawValue)
             let matches = detector.matches(in: self, options: [], range: NSMakeRange(0, self.count))
