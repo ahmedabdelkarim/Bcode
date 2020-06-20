@@ -37,6 +37,12 @@
                                     <outlet property="delegate" destination="NT1-cd-19Y" id="ce7-Xl-mDD"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTt-yk-ib5">
+                                <rect key="frame" x="166.5" y="444" width="81.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" name="ThemeColor1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="ThemeColor2"/>
                         <constraints>
@@ -45,6 +51,8 @@
                             <constraint firstItem="f9U-b0-jyZ" firstAttribute="trailing" secondItem="faJ-Jr-1Gl" secondAttribute="trailing" constant="12" id="A6W-QX-fd0"/>
                             <constraint firstItem="Ts5-Ku-0nn" firstAttribute="leading" secondItem="f9U-b0-jyZ" secondAttribute="leading" id="NSz-zS-1yW"/>
                             <constraint firstItem="f9U-b0-jyZ" firstAttribute="bottom" secondItem="Ts5-Ku-0nn" secondAttribute="bottom" id="Q19-6H-NtQ"/>
+                            <constraint firstItem="HTt-yk-ib5" firstAttribute="centerX" secondItem="Ts5-Ku-0nn" secondAttribute="centerX" id="QVE-lh-fME"/>
+                            <constraint firstItem="HTt-yk-ib5" firstAttribute="centerY" secondItem="Ts5-Ku-0nn" secondAttribute="centerY" id="Qbu-Oz-RsG"/>
                             <constraint firstItem="Ts5-Ku-0nn" firstAttribute="top" secondItem="faJ-Jr-1Gl" secondAttribute="bottom" constant="12" id="WA8-GC-9zL"/>
                             <constraint firstItem="faJ-Jr-1Gl" firstAttribute="leading" secondItem="f9U-b0-jyZ" secondAttribute="leading" constant="12" id="ZkU-av-u49"/>
                         </constraints>
@@ -54,6 +62,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categorySegmentedControl" destination="faJ-Jr-1Gl" id="GbU-y0-3GZ"/>
+                        <outlet property="emptyStateIndicator" destination="HTt-yk-ib5" id="mYV-bm-1zC"/>
                         <outlet property="tableView" destination="Ts5-Ku-0nn" id="5iC-62-WON"/>
                         <segue destination="Vvb-xb-TeZ" kind="show" identifier="showBarcodeDetails" id="ahj-Wa-J1h"/>
                     </connections>

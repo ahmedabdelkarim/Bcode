@@ -16,7 +16,7 @@ class BarcodeInfo {
     static private var favoriteBarcodes:[BarcodeInfo]? = nil
     
     //MARK: - Variables
-    private var id:Int!
+    private var id:Int64!
     var text:String!
     var contentType:BarcodeContentType!
     var isFavorite:Bool!
@@ -31,7 +31,7 @@ class BarcodeInfo {
         id = generateID()
     }
     
-    init(id:Int, text:String, contentType:BarcodeContentType, isFavorite:Bool, date:Date) {
+    init(id:Int64, text:String, contentType:BarcodeContentType, isFavorite:Bool, date:Date) {
         self.id = id
         self.text = text
         self.contentType = contentType
@@ -47,8 +47,8 @@ class BarcodeInfo {
     }
     
     //MARK: - Functions
-    private func generateID() -> Int {
-        return Date().hashValue
+    private func generateID() -> Int64 {
+        return Int64(Date().hashValue)
     }
     
     public func performMainAction() {
@@ -148,7 +148,7 @@ class BarcodeInfo {
             let entityArray = try Database.context.fetch(request)
             
             let array = entityArray.map({ (entity) -> BarcodeInfo in
-                let item = BarcodeInfo(id: Int(entity.id), text: entity.text!, contentType: BarcodeContentType(rawValue: entity.contentTypeString!)!, isFavorite: entity.isFavorite, date: entity.date!)
+                let item = BarcodeInfo(id: entity.id, text: entity.text!, contentType: BarcodeContentType(rawValue: entity.contentTypeString!)!, isFavorite: entity.isFavorite, date: entity.date!)
                 item.barcodeInfoEntity = entity
                 return item
             })
@@ -207,7 +207,7 @@ class BarcodeInfo {
             let entityArray = try Database.context.fetch(request)
             
             let array = entityArray.map({ (entity) -> BarcodeInfo in
-                let item = BarcodeInfo(id: Int(entity.id), text: entity.text!, contentType: BarcodeContentType(rawValue: entity.contentTypeString!)!, isFavorite: entity.isFavorite, date: entity.date!)
+                let item = BarcodeInfo(id: entity.id, text: entity.text!, contentType: BarcodeContentType(rawValue: entity.contentTypeString!)!, isFavorite: entity.isFavorite, date: entity.date!)
                 item.barcodeInfoEntity = entity
                 return item
             })
@@ -228,12 +228,14 @@ class BarcodeInfo {
     private func addToHistoryInDatabase() -> Bool {
         
         
-        let object = BarcodeInfoEntity(context: Database.context)
-        object.id = Int32(self.id)
-        object.text = self.text
-        object.contentTypeString = self.contentType.rawValue
-        object.isFavorite = self.isFavorite
-        object.date = self.date
+        let newEntity = BarcodeInfoEntity(context: Database.context)
+        newEntity.id = self.id
+        newEntity.text = self.text
+        newEntity.contentTypeString = self.contentType.rawValue
+        newEntity.isFavorite = self.isFavorite
+        newEntity.date = self.date
+        
+        self.barcodeInfoEntity = newEntity
         
         return Database.saveContext()
         

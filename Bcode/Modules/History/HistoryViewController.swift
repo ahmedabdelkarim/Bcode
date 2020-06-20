@@ -10,8 +10,9 @@ import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BarcodeDetailsViewControllerDelegate {
     //MARK: - Outlets
-    @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var categorySegmentedControl: DesignableSegmentedControl!
+    @IBOutlet weak var tableView:UITableView!
+    @IBOutlet weak var emptyStateIndicator: UILabel!
     
     //MARK: - Variables
     private var barcodeInfoArray:[BarcodeInfo]!
@@ -79,6 +80,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         default:
             break
         }
+        
+        emptyStateIndicator.isHidden = barcodeInfoArray.count > 0
     }
     
     //MARK: - Actions

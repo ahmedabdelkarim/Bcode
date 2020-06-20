@@ -37,12 +37,20 @@
                                     <outlet property="delegate" destination="gaW-qr-pGd" id="g44-3O-aua"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLn-4D-FtH">
+                                <rect key="frame" x="166.5" y="444" width="81.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" name="ThemeColor1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="ThemeColor2"/>
                         <constraints>
                             <constraint firstItem="5oZ-0g-HL3" firstAttribute="bottom" secondItem="h0J-bi-JTW" secondAttribute="bottom" id="AX1-3u-kDs"/>
                             <constraint firstItem="5oZ-0g-HL3" firstAttribute="trailing" secondItem="h0J-bi-JTW" secondAttribute="trailing" id="Gc0-bJ-PIK"/>
                             <constraint firstItem="cr1-He-t39" firstAttribute="leading" secondItem="5oZ-0g-HL3" secondAttribute="leading" constant="12" id="Y8Q-qt-fIR"/>
+                            <constraint firstItem="wLn-4D-FtH" firstAttribute="centerX" secondItem="h0J-bi-JTW" secondAttribute="centerX" id="f8E-Zp-xgJ"/>
+                            <constraint firstItem="wLn-4D-FtH" firstAttribute="centerY" secondItem="h0J-bi-JTW" secondAttribute="centerY" id="gMb-dv-z4e"/>
                             <constraint firstItem="h0J-bi-JTW" firstAttribute="leading" secondItem="5oZ-0g-HL3" secondAttribute="leading" id="hol-H4-4Va"/>
                             <constraint firstItem="h0J-bi-JTW" firstAttribute="top" secondItem="cr1-He-t39" secondAttribute="bottom" constant="12" id="m6P-ag-9Ex"/>
                             <constraint firstItem="cr1-He-t39" firstAttribute="top" secondItem="5oZ-0g-HL3" secondAttribute="top" constant="12" id="wfb-nO-70o"/>
@@ -54,6 +62,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categorySegmentedControl" destination="cr1-He-t39" id="Fxt-w8-2Ce"/>
+                        <outlet property="emptyStateIndicator" destination="wLn-4D-FtH" id="3Td-E0-qTP"/>
                         <outlet property="tableView" destination="h0J-bi-JTW" id="0FQ-0j-ZOc"/>
                         <segue destination="HPz-xc-jhC" kind="show" identifier="showBarcodeDetails" id="tUW-Up-0yW"/>
                     </connections>
