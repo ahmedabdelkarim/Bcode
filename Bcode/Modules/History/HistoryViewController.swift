@@ -31,6 +31,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        viewAnimating()
         loadHistoryBarcodes()
     }
     

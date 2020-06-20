@@ -9,7 +9,12 @@
 import UIKit
 
 extension UIViewController {
-    @objc func scrollToTop() {
-        
+    @objc func scrollToTop() {}
+    
+    func viewAnimating() {
+        self.view.alpha = 0.85
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.alpha = 1
+        })
     }
 }

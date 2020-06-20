@@ -25,6 +25,12 @@ class SettingsViewController: UIViewController {
         continuousScanSwitch.isEnabled = autoScanSwitch.isOn
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewAnimating()
+    }
+    
     //MARK: - Functions
     func loadSettings() {
         vibrationEnabledSwitch.isOn = Settings.vibrationEnabled

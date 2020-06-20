@@ -53,6 +53,7 @@ class ScanningViewController: UIViewController, BarcodeScannerDelegate, Shortcut
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        viewAnimating()
         barcodeScanner.vibrateWhenCodeDetected = Settings.vibrationEnabled
         scanButtonView.isHidden = Settings.autoScan
         updateButtonsState()
