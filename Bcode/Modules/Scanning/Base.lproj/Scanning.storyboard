@@ -371,8 +371,17 @@
                                 <rect key="frame" x="24" y="48" width="327" height="480"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksg-VZ-NFT">
-                                        <rect key="frame" x="8" y="8" width="311" height="464"/>
+                                        <rect key="frame" x="8" y="8" width="311" height="432"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" name="ThemeColor1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txs-GP-zNj">
+                                        <rect key="frame" x="157" y="448" width="13" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="OmU-vK-oeG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="ThemeColor1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -381,7 +390,9 @@
                                 <constraints>
                                     <constraint firstItem="ksg-VZ-NFT" firstAttribute="top" secondItem="iA1-gd-QWx" secondAttribute="top" constant="8" id="6Xd-5Y-9jX"/>
                                     <constraint firstItem="ksg-VZ-NFT" firstAttribute="leading" secondItem="iA1-gd-QWx" secondAttribute="leading" constant="8" id="GZL-Xq-yY4"/>
-                                    <constraint firstAttribute="bottom" secondItem="ksg-VZ-NFT" secondAttribute="bottom" constant="8" id="u93-ET-81N"/>
+                                    <constraint firstAttribute="bottom" secondItem="Txs-GP-zNj" secondAttribute="bottom" constant="8" id="Yb1-Oo-1eZ"/>
+                                    <constraint firstItem="Txs-GP-zNj" firstAttribute="centerX" secondItem="iA1-gd-QWx" secondAttribute="centerX" id="qMV-BU-7l7"/>
+                                    <constraint firstItem="Txs-GP-zNj" firstAttribute="top" secondItem="ksg-VZ-NFT" secondAttribute="bottom" constant="8" id="r9j-8E-RdZ"/>
                                     <constraint firstAttribute="trailing" secondItem="ksg-VZ-NFT" secondAttribute="trailing" constant="8" id="wZe-Oa-YHy"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -570,6 +581,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="DkI-RN-upI"/>
                     <connections>
+                        <outlet property="barcodeDateLabel" destination="Txs-GP-zNj" id="GaQ-I5-ozR"/>
                         <outlet property="barcodeTextLabel" destination="ksg-VZ-NFT" id="0zC-gE-YIK"/>
                         <outlet property="favoriteButton" destination="9oP-ps-r8O" id="ghN-2b-0l7"/>
                         <outlet property="imageButton" destination="ymN-qa-h9q" id="WQ2-2T-CnO"/>
@@ -580,7 +592,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2O-gt-QPr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1346.376811594203" y="140.625"/>
+            <point key="canvasLocation" x="1344.8" y="140.39408866995075"/>
         </scene>
     </scenes>
     <resources>

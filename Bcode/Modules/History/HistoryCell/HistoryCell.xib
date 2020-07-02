@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loF-Vf-hXV">
-                                <rect key="frame" x="88" y="8" width="248" height="72"/>
+                                <rect key="frame" x="88" y="8" width="244" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" name="ThemeColor1"/>
                                 <nil key="highlightedColor"/>
@@ -53,17 +53,25 @@
                                     <constraint firstAttribute="height" constant="24" id="WVQ-y5-FKe"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="59 Sec." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="270-dv-6SL">
+                                <rect key="frame" x="333" y="69" width="35" height="11"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="9"/>
+                                <color key="textColor" name="ThemeColor1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="ThemeColor2"/>
                         <constraints>
                             <constraint firstItem="loF-Vf-hXV" firstAttribute="top" secondItem="qnp-tz-HKk" secondAttribute="top" constant="8" id="8ky-SC-tyB"/>
+                            <constraint firstAttribute="trailing" secondItem="270-dv-6SL" secondAttribute="trailing" constant="8" id="8pr-fT-w4S"/>
+                            <constraint firstAttribute="bottom" secondItem="270-dv-6SL" secondAttribute="bottom" constant="8" id="PlI-g4-NsB"/>
                             <constraint firstItem="2RS-I3-zbF" firstAttribute="top" secondItem="qnp-tz-HKk" secondAttribute="top" constant="8" id="XmO-2T-TpW"/>
                             <constraint firstItem="2RS-I3-zbF" firstAttribute="leading" secondItem="qnp-tz-HKk" secondAttribute="leading" constant="8" id="Zvr-Eb-SaN"/>
                             <constraint firstAttribute="bottom" secondItem="2RS-I3-zbF" secondAttribute="bottom" constant="8" id="cmU-mI-NnU"/>
                             <constraint firstAttribute="bottom" secondItem="loF-Vf-hXV" secondAttribute="bottom" constant="8" id="coy-Px-55r"/>
                             <constraint firstAttribute="trailing" secondItem="qLu-TM-Kqc" secondAttribute="trailing" constant="8" id="gVt-Hj-yBQ"/>
                             <constraint firstItem="loF-Vf-hXV" firstAttribute="leading" secondItem="2RS-I3-zbF" secondAttribute="trailing" constant="8" id="lPc-wF-PnJ"/>
-                            <constraint firstItem="qLu-TM-Kqc" firstAttribute="leading" secondItem="loF-Vf-hXV" secondAttribute="trailing" constant="8" id="nTh-Lq-BPa"/>
+                            <constraint firstItem="qLu-TM-Kqc" firstAttribute="leading" secondItem="loF-Vf-hXV" secondAttribute="trailing" constant="12" id="nTh-Lq-BPa"/>
                             <constraint firstItem="qLu-TM-Kqc" firstAttribute="top" secondItem="qnp-tz-HKk" secondAttribute="top" constant="8" id="njE-f5-dbR"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -92,6 +100,7 @@
                 <outlet property="barcodeTextLabel" destination="loF-Vf-hXV" id="AgF-7u-x1U"/>
                 <outlet property="isFavoriteImageView" destination="qLu-TM-Kqc" id="3Ve-g9-DOj"/>
                 <outlet property="mainActionButton" destination="2RS-I3-zbF" id="uvZ-sz-LPR"/>
+                <outlet property="timeAgoLabel" destination="270-dv-6SL" id="6pP-AI-to3"/>
             </connections>
             <point key="canvasLocation" x="124.6376811594203" y="132.58928571428572"/>
         </tableViewCell>

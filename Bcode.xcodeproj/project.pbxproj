@@ -51,6 +51,7 @@
 		F555A46D244FB21900D79C5D /* ShortcutItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */; };
 		F55D3561249E4F7C00C72E51 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F55D355F249E4F7C00C72E51 /* Database.xcdatamodeld */; };
 		F55D3563249E52E600C72E51 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D3562249E52E600C72E51 /* Database.swift */; };
+		F588AAE224AE044300A16205 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F588AAE124AE044300A16205 /* DateExtensions.swift */; };
 		F5A6E6752480612700F282CF /* UISegmentedControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A6E6742480612700F282CF /* UISegmentedControlExtensions.swift */; };
 		F5AD04FC249A6136006080DA /* Schemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AD04FB249A6136006080DA /* Schemes.swift */; };
 		F5F62D982473308F008042DF /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F62D972473308F008042DF /* History.storyboard */; };
@@ -107,6 +108,7 @@
 		F555A46C244FB21900D79C5D /* ShortcutItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutItemHandler.swift; sourceTree = "<group>"; };
 		F55D3560249E4F7C00C72E51 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		F55D3562249E52E600C72E51 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		F588AAE124AE044300A16205 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		F5A6E6742480612700F282CF /* UISegmentedControlExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtensions.swift; sourceTree = "<group>"; };
 		F5AD04FB249A6136006080DA /* Schemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schemes.swift; sourceTree = "<group>"; };
 		F5F62D972473308F008042DF /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				F5A6E6742480612700F282CF /* UISegmentedControlExtensions.swift */,
 				F5429C3124812D0B000A185D /* UIViewControllerExtensions.swift */,
 				F51933A024858BDE009FB843 /* StringExtensions.swift */,
+				F588AAE124AE044300A16205 /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				F50A12EA246736E100BFF21B /* BarcodeDetailsViewController.swift in Sources */,
 				F544A5D1247F06A800B8562A /* HistoryCell.swift in Sources */,
 				F5AD04FC249A6136006080DA /* Schemes.swift in Sources */,
+				F588AAE224AE044300A16205 /* DateExtensions.swift in Sources */,
 				F528C8F0249CE47F0083D632 /* ToastEdge.swift in Sources */,
 				F544A5DF247F14A000B8562A /* FavoritesViewController.swift in Sources */,
 				F5469810249BBDF60005A02E /* CustomToastView.swift in Sources */,

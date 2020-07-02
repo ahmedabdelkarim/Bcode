@@ -13,6 +13,7 @@ class FavoriteCell: UITableViewCell {
     @IBOutlet weak var mainActionButton: RoundedButton!
     @IBOutlet weak var barcodeTextLabel: UILabel!
     @IBOutlet weak var isFavoriteImageView: UIImageView!
+    @IBOutlet weak var timeAgoLabel: UILabel!
     
     //MARK: - Variables
     private var barcodeInfo:BarcodeInfo!
@@ -20,7 +21,6 @@ class FavoriteCell: UITableViewCell {
     //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.init(named: "ThemeColor1")
@@ -34,6 +34,7 @@ class FavoriteCell: UITableViewCell {
         mainActionButton.setImage(barcodeInfo.actionImage, for: .normal)
         barcodeTextLabel.text = barcodeInfo.text
         isFavoriteImageView.isHidden = !barcodeInfo.isFavorite
+        timeAgoLabel.text = barcodeInfo.date.timeAgo
     }
     
     //MARK: - Actions

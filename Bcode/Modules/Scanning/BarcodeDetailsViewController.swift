@@ -11,6 +11,7 @@ import UIKit
 class BarcodeDetailsViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var barcodeTextLabel: UILabel!
+    @IBOutlet weak var barcodeDateLabel: UILabel!
     @IBOutlet weak var favoriteButton: RoundedButton!
     
     @IBOutlet weak var imageButton: RoundedButton!
@@ -28,7 +29,7 @@ class BarcodeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        showBarcodeText()
+        showBarcodeDetails()
         setFavoriteButtonImage()
         displayProperActions()
     }
@@ -40,8 +41,10 @@ class BarcodeDetailsViewController: UIViewController {
     }
     
     //MARK: - Functions
-    func showBarcodeText() {
+    func showBarcodeDetails() {
         barcodeTextLabel.text = barcodeInfo.text
+        
+        barcodeDateLabel.text = barcodeInfo.date.formattedString
         
         //TODO: show thumbnails if needed (image if base64 image, map, phone nnumber indicator, web page or link, etc.)
         
