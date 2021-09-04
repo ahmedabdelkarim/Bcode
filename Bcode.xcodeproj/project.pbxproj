@@ -252,10 +252,10 @@
 		F544A5DB247F0C1100B8562A /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				F544A5DC247F0C2D00B8562A /* BarcodeInfo.swift */,
-				F5296DDD248016960017B95B /* BarcodeContentType.swift */,
 				F55D355F249E4F7C00C72E51 /* Database.xcdatamodeld */,
 				F55D3562249E52E600C72E51 /* Database.swift */,
+				F544A5DC247F0C2D00B8562A /* BarcodeInfo.swift */,
+				F5296DDD248016960017B95B /* BarcodeContentType.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
