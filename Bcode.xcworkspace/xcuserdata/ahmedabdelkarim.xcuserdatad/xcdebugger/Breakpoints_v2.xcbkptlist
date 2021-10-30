@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "VisionDetector"
-            landmarkType = "3">
+            landmarkName = "detectQR(image:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -241,22 +241,6 @@
             startingLineNumber = "149"
             endingLineNumber = "149"
             landmarkName = "calculateValues()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "04774F1F-8CAF-4363-ABAE-08D49CEBA05F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bcode/Modules/Scanning/ScanningViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378"
-            landmarkName = "scanButtonClick(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

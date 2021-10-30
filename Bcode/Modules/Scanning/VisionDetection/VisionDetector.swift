@@ -18,56 +18,56 @@ class VisionDetector {
     //MARK: - Functions
     func detect(image:UIImage, detectionType:VisionDetectionType) {
         
-        detectBarcode(image:image)
+        //detectBarcode(image:image)
         
-//        switch detectionType {
-//        case .qr:
-//            let detected = detectQR(image:image)
-//            if(detected != nil) {
-//                print(detected!)
-//                delegate?.visionDetectorDetectedCode(detector: self, code: detected!, type: .qr)
-//            }
-//            else {
-//                delegate?.visionDetectorFailedToDetectCode(detector: self)
-//            }
-//            break
-//        case .ean13:
-//            detectBarcode(image:image)
-//            break
-//        case .all:
-//            let detected = detectQR(image:image)
-//
-//            if(detected != nil) {
-//                print(detected!)
-//                delegate?.visionDetectorDetectedCode(detector: self, code: detected!, type: .qr)
-//            }
-//            else {
-//                detectBarcode(image:image)
-//            }
-//            break
-//        }
+        switch detectionType {
+            case .qr:
+                let detected = detectQR(image:image)
+                if(detected != nil) {
+                    print(detected!)
+                    delegate?.visionDetectorDetectedCode(detector: self, code: detected!)
+                }
+                else {
+                    delegate?.visionDetectorFailedToDetectCode(detector: self)
+                }
+                break
+            case .ean13:
+                detectBarcode(image:image)
+                break
+            case .all:
+                let detected = detectQR(image:image)
+                
+                if(detected != nil) {
+                    print(detected!)
+                    delegate?.visionDetectorDetectedCode(detector: self, code: detected!)
+                }
+                else {
+                    detectBarcode(image:image)
+                }
+                break
+        }
     }
     
     //MARK: - Private Functions
-//    private func detectQR(image:UIImage) -> String? {
-//        let ciImage = CIImage(image:image)!
-//
-//        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])!
-//
-//        var detected = ""
-//
-//        let features = detector.features(in: ciImage)
-//
-//        if(features.count == 0 || features as? [CIQRCodeFeature] == nil) {
-//            return nil
-//        }
-//
-//        for feature in features as! [CIQRCodeFeature] {
-//            detected += feature.messageString!
-//        }
-//
-//        return detected
-//    }
+    private func detectQR(image:UIImage) -> String? {
+        let ciImage = CIImage(image:image)!
+        
+        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])!
+        
+        var detected = ""
+        
+        let features = detector.features(in: ciImage)
+        
+        if(features.count == 0 || features as? [CIQRCodeFeature] == nil) {
+            return nil
+        }
+        
+        for feature in features as! [CIQRCodeFeature] {
+            detected += feature.messageString!
+        }
+        
+        return detected
+    }
     
     private func detectBarcode(image:UIImage) {
         var vnBarCodeDetectionRequest : VNDetectBarcodesRequest{
