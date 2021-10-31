@@ -30,8 +30,8 @@
             filePath = "Bcode/Modules/Scanning/VisionDetection/VisionDetector.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "detectBarcode(image:)"
             landmarkType = "7">
          </BreakpointContent>

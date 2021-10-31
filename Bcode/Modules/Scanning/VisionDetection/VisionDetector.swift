@@ -50,20 +50,24 @@ class VisionDetector {
     
     //MARK: - Private Functions
     private func detectQR(image:UIImage) -> String? {
-        let ciImage = CIImage(image:image)!
-        
-        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])!
-        
-        var detected = ""
-        
-        let features = detector.features(in: ciImage)
-        
-        if(features.count == 0 || features as? [CIQRCodeFeature] == nil) {
+        guard let ciImage = image.ciImage ?? CIImage(image:image) else {
             return nil
         }
         
-        for feature in features as! [CIQRCodeFeature] {
-            detected += feature.messageString!
+        guard let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh]) else {
+            return nil
+        }
+        
+        let features = detector.features(in: ciImage)
+        
+        guard let QRFeatures = features as? [CIQRCodeFeature], QRFeatures.count > 0 else {
+            return nil
+        }
+        
+        var detected = ""
+        
+        for feature in QRFeatures {
+            detected += feature.messageString ?? ""
         }
         
         return detected
